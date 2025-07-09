@@ -1059,4 +1059,99 @@ footer {
     .contact-layout {
         grid-template-columns: 1fr;
     }
+}
+
+/* Product Page Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 40px 0;
+}
+
+.product-grid .card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-grid .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.product-grid .card img {
+    /* The Image component from Next.js doesn't need this, but it's here as a fallback */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-grid .card .card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-grid .card .product-category {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.product-grid .card h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 10px;
+}
+
+.product-grid .card p {
+    margin: 0 0 15px;
+    flex-grow: 1;
+}
+
+.product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.product-features li {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.product-features .bi-check {
+    color: #2e7d32;
+    margin-right: 8px;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.product-grid .card .cta-button {
+    background: #2e7d32;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    margin-top: auto;
+}
+
+.product-grid .card .cta-button:hover {
+    background: #1b5e20;
 } 
