@@ -1,20 +1,22 @@
 /* --- Universal Calculator Sidebar --- */
 #universal-calculator-sidebar {
     position: fixed;
-    top: 0;
-    right: -320px; /* Start off-screen */
-    width: 320px;
-    height: 100%;
+    top: 50%;
+    right: -350px; /* Start off-screen */
+    width: 350px;
+    height: auto;
+    transform: translateY(-50%);
     background-color: #ffffff;
     box-shadow: -4px 0 15px rgba(0, 0, 0, 0.15);
     z-index: 2000;
     transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
     flex-direction: column;
+    border-radius: 8px 0 0 8px;
 }
 
 #universal-calculator-sidebar.open {
-    right: 0;
+    right: 0px; /* Add padding for scrollbar */
 }
 
 #calc-toggle-tab {
@@ -43,10 +45,13 @@
 
 .calc-content {
     padding: 20px;
-    overflow-y: auto;
-    height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.calc-content::-webkit-scrollbar {
+    display: none;
 }
 
 .calc-header {
@@ -131,6 +136,8 @@
     border-radius: 5px;
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    box-sizing: border-box; /* This is the fix */
 }
 
 .form-group input:focus,
