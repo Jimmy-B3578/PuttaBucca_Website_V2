@@ -1,0 +1,97 @@
+import { products } from '../../config/products.config';
+import Image from 'next/image';
+import Link from 'next/link';
+
+// Helper function to generate slugs, in a real app this would be more robust
+const slugify = (text) => text.toString().toLowerCase()
+  .replace(/\s+/g, '-')
+  .replace(/[^\w-]+/g, '')
+  .replace(/--+/g, '-')
+  .replace(/^-+/, '')
+  .replace(/-+$/, '');
+
+const ProductDetailPage = ({ params }) => {
+  const { slug } = params;
+  const product = products.find(p => slugify(p.name) === slug);
+
+  if (!product) {
+    return (
+      <div className="container" style={{ textAlign: 'center', padding: '80px 0' }}>
+        <h1>Product Not Found</h1>
+        <p>Sorry, we couldn't find the product you're looking for.</p>
+        <Link href="/products" className="cta-button">Back to Products</Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="container product-detail-page">
+        <nav className="product-breadcrumb">
+            <Link href="/">Home</Link> / <Link href="/products">Products</Link> / <span>{product.name}</span>
+        </nav>
+        <div className="product-detail-container">
+            <div className="product-image-gallery">
+                <div className="product-main-image">
+                    <Image src={product.image} alt={product.name} width={600} height={600} style={{objectFit: 'cover'}} />
+                </div>
+            </div>
+            <div className="product-info-column">
+                <span className="category-badge">{product.category}</span>
+                <h1>{product.name}</h1>
+
+                <div className="price-stock-container">
+                    <div className="measurement-info">
+                        <span>Measured by:</span>
+                        <strong>{product.unit === 'per tonne' ? 'Weight (tonnes)' : 'Volume (m³)'}</strong>
+                        {product.density && (
+                            <small>Approx. {product.density} tonnes per m³</small>
+                        )}
+                    </div>
+                    <span className={`stock-status ${product.inStock ? 'in-stock' : 'out-of-stock'}`}>
+                        {product.inStock ? 'In Stock' : 'Out of Stock'}
+                    </span>
+                </div>
+
+                <p className="description">{product.description}</p>
+                
+                <div className="product-details-grid">
+                    <div className="product-specs">
+                        <h3>Specifications</h3>
+                        <ul>
+                            {Object.entries(product.specifications).map(([key, value]) => (
+                                <li key={key}><strong>{key}:</strong> {value}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    
+                    <div className="product-applications">
+                        <h3>Common Applications</h3>
+                        <ul>
+                            {product.applications.map((app, index) => (
+                                <li key={index}>{app}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="delivery-info">
+                    <p>{product.deliveryInfo}</p>
+                </div>
+
+                <a href="/contact" className="cta-button inquiry-button">
+                    Make an Inquiry
+                </a>
+            </div>
+        </div>
+    </div>
+  );
+};
+
+export default ProductDetailPage;
+
+// This function tells Next.js which routes to pre-render at build time.
+export async function generateStaticParams() {
+  return products.map(product => ({
+    slug: slugify(product.name),
+  }));
+} 

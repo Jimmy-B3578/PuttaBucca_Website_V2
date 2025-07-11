@@ -1,5 +1,14 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { products } from '../config/products.config.js';
+
+// Helper function to generate slugs
+const slugify = (text) => text.toString().toLowerCase()
+  .replace(/\s+/g, '-')
+  .replace(/[^\w-]+/g, '')
+  .replace(/--+/g, '-')
+  .replace(/^-+/, '')
+  .replace(/-+$/, '');
 
 export default function ProductsPage() {
   return (
@@ -23,7 +32,9 @@ export default function ProductsPage() {
                   </li>
                 ))}
               </ul>
-              <a href="#" className="cta-button">View Details</a>
+              <Link href={`/products/${slugify(product.name)}`} className="cta-button">
+                View Details
+              </Link>
             </div>
           </div>
         ))}

@@ -17,12 +17,18 @@ const Calculator = () => {
     'calc-material-select': '',
   });
   const [volume, setVolume] = useState(0);
-  const [cost, setCost] = useState(0);
+  const [weight, setWeight] = useState(0);
+  const [selectedMaterial, setSelectedMaterial] = useState(null);
   const [showResult, setShowResult] = useState(false);
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setInputs((prev) => ({ ...prev, [id]: value }));
+
+    if (id === 'calc-material-select') {
+      const product = products.find(p => p.id === parseInt(value));
+      setSelectedMaterial(product || null);
+    }
   };
   
   const performCalculation = () => {
@@ -67,26 +73,25 @@ const Calculator = () => {
       'calc-material-select': '',
     });
     setVolume(0);
-    setCost(0);
+    setWeight(0);
+    setSelectedMaterial(null);
     setShowResult(false);
   };
 
   useEffect(() => {
-    if (volume > 0 && inputs['calc-material-select']) {
-      const price = parseFloat(inputs['calc-material-select']);
-      setCost(volume * price);
+    if (volume > 0 && selectedMaterial && selectedMaterial.density) {
+      setWeight(volume * selectedMaterial.density);
     } else {
-      setCost(0);
+      setWeight(0);
     }
-  }, [volume, inputs['calc-material-select']]);
+  }, [volume, selectedMaterial]);
 
   useEffect(() => {
     // Hide results when switching tabs
     setShowResult(false);
   }, [activeShape]);
 
-  // Filter products that can be sold by volume (assuming they have a price per cubic meter)
-  const materialOptions = products.filter(p => p.category !== 'REINFORCEMENT' && p.category !== 'SLEEPERS' && p.price);
+  const materialOptions = products;
 
   return (
     <div id="universal-calculator-sidebar" className={isOpen ? 'open' : ''}>
@@ -156,18 +161,20 @@ const Calculator = () => {
               </div>
               <hr />
               <div className="form-group">
-                <label htmlFor="calc-material-select">Material:</label>
+                <label htmlFor="calc-material-select">Material for Weight Est.</label>
                 <select id="calc-material-select" value={inputs['calc-material-select']} onChange={handleInputChange}>
                   <option value="">-- Select --</option>
                   {materialOptions.map(p => (
-                    <option key={p.id} value={p.price}>{p.name} - ${p.price}/m³</option>
+                    <option key={p.id} value={p.id}>{p.name}</option>
                   ))}
                 </select>
               </div>
-              <div className="calc-result-item">
-                <span>Estimated Cost:</span>
-                <strong id="calc-cost-result">${cost.toFixed(2)}</strong>
-              </div>
+              {weight > 0 && selectedMaterial && selectedMaterial.unit === 'per tonne' && (
+                <div className="calc-result-item">
+                  <span>Estimated Weight:</span>
+                  <strong id="calc-weight-result">{weight.toFixed(2)} tonnes</strong>
+                </div>
+              )}
             </div>
           )}
         </div>
