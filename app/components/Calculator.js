@@ -165,7 +165,9 @@ const Calculator = () => {
                 <select id="calc-material-select" value={inputs['calc-material-select']} onChange={handleInputChange}>
                   <option value="">-- Select --</option>
                   {materialOptions.map(p => (
-                    <option key={p.id} value={p.id}>{p.name}</option>
+                    <option key={p.id} value={p.id}>
+                      {p.name} ({p.unit.replace('per ', '')})
+                    </option>
                   ))}
                 </select>
               </div>

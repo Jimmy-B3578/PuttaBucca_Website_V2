@@ -167,6 +167,7 @@
 .calculate-btn {
     background-color: #2e7d32;
     color: white;
+    border: 2px solid transparent;
 }
 
 .calculate-btn:hover {
@@ -175,12 +176,14 @@
 }
 
 .reset-btn {
-    background-color: #f44336;
-    color: white;
+    background-color: transparent;
+    color: #555;
+    border: 2px solid #ddd;
 }
 
 .reset-btn:hover {
-    background-color: #d32f2f;
+    background-color: #f4f4f4;
+    border-color: #ccc;
     transform: translateY(-1px);
 }
 
