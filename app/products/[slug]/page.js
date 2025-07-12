@@ -1,6 +1,7 @@
 import { products } from '../../config/products.config';
 import Image from 'next/image';
 import Link from 'next/link';
+import ProductDetailClient from '../../components/ProductDetailClient';
 
 // Helper function to generate slugs, in a real app this would be more robust
 const slugify = (text) => text.toString().toLowerCase()
@@ -78,9 +79,7 @@ const ProductDetailPage = ({ params }) => {
                     <p>{product.deliveryInfo}</p>
                 </div>
 
-                <a href="/contact" className="cta-button inquiry-button">
-                    Make an Inquiry
-                </a>
+                <ProductDetailClient product={product} />
             </div>
         </div>
     </div>
