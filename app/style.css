@@ -915,6 +915,28 @@ footer {
     font-size: 1.1rem;
 }
 
+.quote-form .cta-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.success-message {
+    color: #2e7d32;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.error-message {
+    color: #c62828;
+    margin-top: 15px;
+    font-weight: 500;
+    background-color: #ffebee;
+    border: 1px solid #e57373;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
