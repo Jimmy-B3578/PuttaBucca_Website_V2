@@ -95,12 +95,13 @@ const Calculator = () => {
 
   return (
     <div id="universal-calculator-sidebar" className={isOpen ? 'open' : ''}>
-      <div id="calc-toggle-tab" onClick={() => setIsOpen(!isOpen)}>
+      <div id="calc-toggle-tab" onClick={() => setIsOpen(true)}>
         CALCULATOR
       </div>
       <div className="calc-content">
         <div className="calc-header">
           <h3>Volume Calculator</h3>
+          <button className="calc-close-btn" onClick={() => setIsOpen(false)}>&times;</button>
         </div>
         <div className="calc-shape-tabs">
           <button onClick={() => setActiveShape('rect')} className={activeShape === 'rect' ? 'active' : ''}>Rectangle</button>
