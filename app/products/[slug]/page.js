@@ -11,8 +11,8 @@ const slugify = (text) => text.toString().toLowerCase()
   .replace(/^-+/, '')
   .replace(/-+$/, '');
 
-const ProductDetailPage = ({ params }) => {
-  const { slug } = params;
+const ProductDetailPage = async ({ params }) => {
+  const { slug } = await params;
   const product = products.find(p => slugify(p.name) === slug);
 
   if (!product) {
@@ -55,25 +55,41 @@ const ProductDetailPage = ({ params }) => {
 
                 <p className="description">{product.description}</p>
                 
-                <div className="product-details-grid">
-                    <div className="product-specs">
-                        <h3>Specifications</h3>
-                        <ul>
-                            {Object.entries(product.specifications).map(([key, value]) => (
-                                <li key={key}><strong>{key}:</strong> {value}</li>
-                            ))}
-                        </ul>
-                    </div>
+                {(() => {
+                    const validSpecs = Object.entries(product.specifications)
+                        .filter(([key, value]) => value && value.trim() !== '');
                     
-                    <div className="product-applications">
-                        <h3>Common Applications</h3>
-                        <ul>
-                            {product.applications.map((app, index) => (
-                                <li key={index}>{app}</li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+                    const hasFeatures = product.featuresAndApplications && product.featuresAndApplications.length > 0;
+                    const hasSpecs = validSpecs.length > 0;
+                    const singleSection = (hasSpecs && !hasFeatures) || (!hasSpecs && hasFeatures);
+                    
+                    return (
+                        <div className={`product-details-grid ${singleSection ? 'single-section' : ''}`}>
+                            {/* Only show specifications if there are non-empty values */}
+                            {hasSpecs && (
+                                <div className="product-specs">
+                                    <h3>Specifications</h3>
+                                    <ul>
+                                        {validSpecs.map(([key, value]) => (
+                                            <li key={key}><strong>{key}:</strong> {value}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                            
+                            {hasFeatures && (
+                                <div className="product-applications">
+                                    <h3>Features and Applications</h3>
+                                    <ul>
+                                        {product.featuresAndApplications.map((item, index) => (
+                                            <li key={index}>{item}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+                    );
+                })()}
 
                 <div className="delivery-info">
                     <p>{product.deliveryInfo}</p>
