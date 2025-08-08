@@ -1,10 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 
 export default function ContactPage() {
-  const searchParams = useSearchParams();
   const [showPrefillHint, setShowPrefillHint] = useState(false);
 
   useEffect(() => {
@@ -25,20 +23,21 @@ export default function ContactPage() {
   }, []);
 
   useEffect(() => {
-    // Prefill from query params
+    // Prefill from query params (no useSearchParams to avoid Suspense requirement)
+    if (typeof window === 'undefined') return;
     const subjectField = document.getElementById('subject');
     const messageField = document.getElementById('message');
     const nameField = document.getElementById('name');
-    const subject = searchParams.get('subject');
-    const message = searchParams.get('message');
+    const sp = new URLSearchParams(window.location.search);
+    const subject = sp.get('subject');
+    const message = sp.get('message');
     if (subjectField && subject) subjectField.value = subject;
     if (messageField && message) messageField.value = message;
-    // If coming from calculator with prefilled details, show prompt and focus name
-    if ((subject || message)) {
+    if (subject || message) {
       setShowPrefillHint(true);
       if (nameField) nameField.focus();
     }
-  }, [searchParams]);
+  }, []);
 
   return (
     <>
