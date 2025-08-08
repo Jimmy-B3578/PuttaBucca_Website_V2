@@ -18,14 +18,13 @@ const slugify = (text) => text.toString().toLowerCase()
 export default function ProductsPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [isInitialized, setIsInitialized] = useState(false);
+  const initialCategory = typeof window !== 'undefined' ? (new URLSearchParams(window.location.search).get('category') || '') : '';
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
   // Initialize and update category from URL parameter
   useEffect(() => {
     const categoryFromUrl = searchParams.get('category');
     setSelectedCategory(categoryFromUrl || '');
-    setIsInitialized(true);
   }, [searchParams]);
 
   // Handle category change
@@ -55,18 +54,10 @@ export default function ProductsPage() {
     return acc;
   }, {});
 
-  // Don't render until we've initialized the category from URL
-  if (!isInitialized) {
-    return (
-      <div className="container">
-        <h1 className="section-title" style={{ textAlign: 'center', marginTop: '40px' }}>Our Products</h1>
-        <div style={{ textAlign: 'center', padding: '40px' }}>Loading...</div>
-      </div>
-    );
-  }
+  // No loading gate – render immediately with fade-in
 
   return (
-    <div className="container">
+    <div className="container animate-fade-in-up">
       <h1 className="section-title" style={{ textAlign: 'center', marginTop: '40px' }}>Our Products</h1>
       
       <CategoryFilter 
@@ -78,7 +69,7 @@ export default function ProductsPage() {
       {Object.entries(groupedProducts).map(([category, productsInCategory]) => (
         <div key={category} className="product-category-group">
           <h2 className="category-title">{category}</h2>
-          <div className="product-grid">
+          <div className="product-grid fade-cards">
             {productsInCategory.map((product) => (
               <div key={product.id} className={`card ${product.category === 'Bagged Products' ? 'bagged-product' : ''}`}>
                 <Image src={product.image} alt={product.name} width={300} height={200} style={{ objectFit: 'cover' }} />

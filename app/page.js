@@ -1,11 +1,18 @@
+import HeroButtons from "./components/HeroButtons";
+
 export default function HomePage() {
   return (
     <>
       <section className="hero">
-        <div className="hero-content">
+        <div className="hero-container">
+                  <div className="hero-content">
           <h1 className="animate-fade-in-down">Your Trusted Partner for Quality Landscape Supplies</h1>
           <p className="animate-fade-in-up">From decorative stones to quality soils, we have everything you need for your next landscaping project.</p>
-          <a href="/products" className="cta-button animate-fade-in-up">Calculate Your Project Needs</a>
+          <HeroButtons />
+        </div>
+          <div className="hero-image">
+            <img src="/images/LandingPage.jpg" alt="Landscape supplies and materials" />
+          </div>
         </div>
       </section>
 
@@ -30,15 +37,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" className="testimonial-section">
-        <div className="container">
-          <h2 className="section-title">What Our Customers Say</h2>
-          <div className="testimonial-card">
-            <p>"The team at Putta Bucca Landscapes were incredibly helpful. Their advice on which gravel to use for my driveway was spot-on, and the delivery was fast and professional. Highly recommend!"</p>
-            <cite>- John D., Mudgee</cite>
-          </div>
-        </div>
-      </section>
+
 
       <section className="cta-section">
         <div className="container">

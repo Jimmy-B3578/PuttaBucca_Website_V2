@@ -81,18 +81,46 @@ header nav ul li a:hover {
 /* Hero Section */
 .hero {
     height: 50vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/homepage-hero-landscape-background.jpg') no-repeat center center/cover;
+    background: #f4f4f4;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    text-align: center;
+    color: #333;
     margin-top: -80px; /* Offset the body padding for hero section */
     padding-top: 80px; /* Add padding to maintain hero content position */
 }
 
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    height: 100%;
+    padding: 0 3rem;
+}
+
 .hero-content {
+    flex: 1;
     max-width: 600px;
+    text-align: left;
+    padding-right: 4rem;
+}
+
+.hero-image {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 .hero h1 {
@@ -105,6 +133,32 @@ header nav ul li a:hover {
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }
+
+/* Fade-in utility reused from hero */
+.animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out both;
+}
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered fade for product cards */
+.fade-cards .card {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.fade-cards .card:nth-child(1) { animation-delay: 0.05s; }
+.fade-cards .card:nth-child(2) { animation-delay: 0.10s; }
+.fade-cards .card:nth-child(3) { animation-delay: 0.15s; }
+.fade-cards .card:nth-child(4) { animation-delay: 0.20s; }
+.fade-cards .card:nth-child(5) { animation-delay: 0.25s; }
+.fade-cards .card:nth-child(6) { animation-delay: 0.30s; }
+.fade-cards .card:nth-child(7) { animation-delay: 0.35s; }
+.fade-cards .card:nth-child(8) { animation-delay: 0.40s; }
 
 .cta-button {
     background: #2e7d32;
@@ -417,6 +471,23 @@ footer {
         padding-top: 140px;
     }
 
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 400px;
+    }
+
     .hero h1 {
         font-size: 2rem;
     }
@@ -564,12 +635,16 @@ footer {
 }
 
 .cta-button.secondary {
-    background-color: #757575;
-    color: #fff;
+    background: transparent;
+    color: #2e7d32;
+    border: 2px solid #2e7d32;
+    margin-top: 1rem;
+    margin-left: 1rem;
 }
 
 .cta-button.secondary:hover {
-    background-color: #616161;
+    background: #2e7d32;
+    color: white;
 }
 
 @media (min-width: 993px) {
@@ -965,7 +1040,7 @@ footer {
 /* Services Page Hero */
 .services-hero {
     height: 40vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/garden-soil-new-garden-setup.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/Services.JPG') no-repeat center center/cover;
     color: white;
     display: flex;
     align-items: center;
@@ -1077,7 +1152,7 @@ footer {
 
 /* Contact Page Hero */
 .contact-hero {
-    height: 40vh;
+    height: 15vh;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/topsoil-mix-1.jpg') no-repeat center center/cover;
     color: white;
     display: flex;
@@ -1086,12 +1161,13 @@ footer {
     text-align: center;
     margin-top: -80px; /* Offset body padding */
     padding-top: 80px;  /* Maintain content position */
+    padding-bottom: 80px; /* Balance top/bottom for equal visual padding */
 }
 
 .contact-hero h1 {
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .contact-hero p {
@@ -1102,14 +1178,14 @@ footer {
 }
 
 .contact-section {
-    padding: 60px 0;
+    padding: 10px 0;
     background: #fff;
 }
 
 .contact-layout {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 50px;
+    gap: 24px;
     align-items: flex-start;
 }
 
@@ -1157,7 +1233,7 @@ footer {
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .form-group label {
@@ -1169,11 +1245,17 @@ footer {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px 15px;
+    padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Make contact page message box taller by default to avoid inner scrolling */
+.contact-form-container textarea#message {
+    min-height: 260px;
+    resize: vertical; /* allow user to expand if needed */
 }
 
 .form-group input:focus,
@@ -1447,4 +1529,38 @@ footer {
         padding: 8px 16px;
         font-size: 0.85rem;
     }
+}
+
+/* Products Page CTA */
+.products-cta {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 2px solid #2e7d32;
+}
+
+.products-cta p {
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.products-cta .cta-button {
+    display: inline-block;
+    background: #2e7d32;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.products-cta .cta-button:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 } 

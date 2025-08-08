@@ -1,11 +1,14 @@
 'use client';
 
+// Persist open state across soft navigations to avoid flicker
+let persistedIsOpen = false;
+
 import { useState, useEffect } from 'react';
 import './Calculator.css';
 import { products } from '../config/products.config.js';
 
 const Calculator = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(persistedIsOpen);
   const [activeShape, setActiveShape] = useState('rect');
   const [inputs, setInputs] = useState({
     'rect-length': '',
@@ -79,6 +82,34 @@ const Calculator = () => {
   };
 
   useEffect(() => {
+    // Open when hash is #calculator; do not auto-close on hash removal
+    const syncFromHash = () => {
+      if (typeof window === 'undefined') return;
+      if (window.location.hash === '#calculator') {
+        persistedIsOpen = true;
+        setIsOpen(true);
+      }
+    };
+    syncFromHash();
+    window.addEventListener('hashchange', syncFromHash);
+    return () => window.removeEventListener('hashchange', syncFromHash);
+  }, []);
+
+  useEffect(() => {
+    const onExplicitClose = () => handleClose();
+    const onExplicitOpen = () => {
+      persistedIsOpen = true;
+      setIsOpen(true);
+    };
+    window.addEventListener('calculator:close', onExplicitClose);
+    window.addEventListener('calculator:open', onExplicitOpen);
+    return () => {
+      window.removeEventListener('calculator:close', onExplicitClose);
+      window.removeEventListener('calculator:open', onExplicitOpen);
+    };
+  }, []);
+
+  useEffect(() => {
     if (volume > 0 && selectedMaterial && selectedMaterial.density) {
       setWeight(volume * selectedMaterial.density);
     } else {
@@ -93,6 +124,15 @@ const Calculator = () => {
 
   const materialOptions = products;
 
+  const handleClose = () => {
+    persistedIsOpen = false;
+    setIsOpen(false);
+    if (typeof window !== 'undefined' && window.location.hash === '#calculator') {
+      // Remove the hash without reloading
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  };
+
   return (
     <div id="universal-calculator-sidebar" className={isOpen ? 'open' : ''}>
       <div id="calc-toggle-tab" onClick={() => setIsOpen(true)}>
@@ -101,7 +141,7 @@ const Calculator = () => {
       <div className="calc-content">
         <div className="calc-header">
           <h3>Volume Calculator</h3>
-          <button className="calc-close-btn" onClick={() => setIsOpen(false)}>&times;</button>
+          <button className="calc-close-btn" onClick={handleClose}>&times;</button>
         </div>
         <div className="calc-shape-tabs">
           <button onClick={() => setActiveShape('rect')} className={activeShape === 'rect' ? 'active' : ''}>Rectangle</button>
@@ -177,6 +217,39 @@ const Calculator = () => {
                   <span>Estimated Weight:</span>
                   <strong id="calc-weight-result">{weight.toFixed(2)} tonnes</strong>
                 </div>
+              )}
+
+              {selectedMaterial && (
+                (() => {
+                  const subject = `Quote request: ${selectedMaterial.name}`;
+                  const lines = [];
+                  lines.push(`Material: ${selectedMaterial.name}`);
+                  lines.push(`Unit: ${selectedMaterial.unit}`);
+                  lines.push(`Shape: ${activeShape}`);
+                  if (activeShape === 'rect') {
+                    lines.push(`Length: ${inputs['rect-length'] || '-'} m`);
+                    lines.push(`Width: ${inputs['rect-width'] || '-'} m`);
+                  } else if (activeShape === 'tri') {
+                    lines.push(`Base: ${inputs['tri-base'] || '-'} m`);
+                    lines.push(`Height: ${inputs['tri-height'] || '-'} m`);
+                  } else if (activeShape === 'circ') {
+                    lines.push(`Diameter: ${inputs['circ-diameter'] || '-'} m`);
+                  }
+                  lines.push(`Depth: ${inputs['calc-depth'] || '-'} mm`);
+                  lines.push(`Calculated volume: ${volume.toFixed(3)} m³`);
+                  if (weight > 0 && selectedMaterial.unit === 'per tonne') {
+                    lines.push(`Estimated weight: ${weight.toFixed(2)} tonnes`);
+                  }
+                  lines.push('');
+                  lines.push('Please provide a quote and availability.');
+                  const message = lines.join('\n');
+                  const href = `/contact?subject=${encodeURIComponent(subject)}&message=${encodeURIComponent(message)}`;
+                  return (
+                    <div style={{ marginTop: '12px' }}>
+                      <a href={href} className="cta-button secondary">Email these details</a>
+                    </div>
+                  );
+                })()
               )}
             </div>
           )}

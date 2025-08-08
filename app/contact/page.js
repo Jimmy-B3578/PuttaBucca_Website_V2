@@ -1,8 +1,12 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function ContactPage() {
+  const searchParams = useSearchParams();
+  const [showPrefillHint, setShowPrefillHint] = useState(false);
+
   useEffect(() => {
     // --- Form Submission ---
     const contactForm = document.getElementById('contact-form');
@@ -19,6 +23,22 @@ export default function ContactPage() {
       contactForm.removeEventListener('submit', handleFormSubmit);
     };
   }, []);
+
+  useEffect(() => {
+    // Prefill from query params
+    const subjectField = document.getElementById('subject');
+    const messageField = document.getElementById('message');
+    const nameField = document.getElementById('name');
+    const subject = searchParams.get('subject');
+    const message = searchParams.get('message');
+    if (subjectField && subject) subjectField.value = subject;
+    if (messageField && message) messageField.value = message;
+    // If coming from calculator with prefilled details, show prompt and focus name
+    if ((subject || message)) {
+      setShowPrefillHint(true);
+      if (nameField) nameField.focus();
+    }
+  }, [searchParams]);
 
   return (
     <>
@@ -47,6 +67,11 @@ export default function ContactPage() {
             </div>
             <div className="contact-form-container">
               <h3>Send Us a Message</h3>
+              {showPrefillHint && (
+                <div className="prefill-hint">
+                  We’ve prefilled your quote details below. Please enter your name, email, and phone number so we can get back to you.
+                </div>
+              )}
               <form id="contact-form">
                 <div className="form-group">
                   <label htmlFor="name">Full Name</label>
