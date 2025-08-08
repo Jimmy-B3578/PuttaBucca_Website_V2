@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { products } from '../config/products.config.js';
 import CategoryFilter from '../components/CategoryFilter';
 
@@ -16,16 +16,22 @@ const slugify = (text) => text.toString().toLowerCase()
   .replace(/-+$/, '');
 
 export default function ProductsPage() {
-  const searchParams = useSearchParams();
   const router = useRouter();
   const initialCategory = typeof window !== 'undefined' ? (new URLSearchParams(window.location.search).get('category') || '') : '';
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
   // Initialize and update category from URL parameter
   useEffect(() => {
-    const categoryFromUrl = searchParams.get('category');
-    setSelectedCategory(categoryFromUrl || '');
-  }, [searchParams]);
+    // Sync category from URL without useSearchParams (avoids Suspense requirement)
+    const syncFromUrl = () => {
+      if (typeof window === 'undefined') return;
+      const sp = new URLSearchParams(window.location.search);
+      setSelectedCategory(sp.get('category') || '');
+    };
+    syncFromUrl();
+    window.addEventListener('popstate', syncFromUrl);
+    return () => window.removeEventListener('popstate', syncFromUrl);
+  }, []);
 
   // Handle category change
   const handleCategoryChange = (category) => {
