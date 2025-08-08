@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { products } from '../config/products.config.js';
 import CategoryFilter from '../components/CategoryFilter';
 
@@ -17,20 +17,33 @@ const slugify = (text) => text.toString().toLowerCase()
 
 export default function ProductsPage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  // Initialize category from URL parameter
+  // Initialize and update category from URL parameter
   useEffect(() => {
     const categoryFromUrl = searchParams.get('category');
-    if (categoryFromUrl) {
-      setSelectedCategory(categoryFromUrl);
-    }
+    setSelectedCategory(categoryFromUrl || '');
+    setIsInitialized(true);
   }, [searchParams]);
+
+  // Handle category change
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    if (category) {
+      router.push(`/products?category=${encodeURIComponent(category)}`);
+    } else {
+      router.push('/products');
+    }
+  };
 
   // Filter products based on selected category
   const filteredProducts = selectedCategory 
     ? products.filter(product => product.category === selectedCategory)
     : products;
+
+
 
   // Group filtered products by category
   const groupedProducts = filteredProducts.reduce((acc, product) => {
@@ -42,6 +55,16 @@ export default function ProductsPage() {
     return acc;
   }, {});
 
+  // Don't render until we've initialized the category from URL
+  if (!isInitialized) {
+    return (
+      <div className="container">
+        <h1 className="section-title" style={{ textAlign: 'center', marginTop: '40px' }}>Our Products</h1>
+        <div style={{ textAlign: 'center', padding: '40px' }}>Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="container">
       <h1 className="section-title" style={{ textAlign: 'center', marginTop: '40px' }}>Our Products</h1>
@@ -49,7 +72,7 @@ export default function ProductsPage() {
       <CategoryFilter 
         products={products}
         selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
+        onCategoryChange={handleCategoryChange}
       />
       
       {Object.entries(groupedProducts).map(([category, productsInCategory]) => (
