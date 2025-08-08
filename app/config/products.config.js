@@ -4,7 +4,7 @@ export const products = [
     name: 'White Crusher Dust',
     image: '/images/WhiteCrusherDust.jpg',
     description: 'A decorative white gravel, perfect for paths and gardens. Its bright white color provides a stunning contrast against plants and lawns, making it a popular choice for modern landscape designs.',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Decorative stone',
       'Ideal for pathways', 
@@ -27,7 +27,7 @@ export const products = [
     name: 'Black Crusher Dust',
     image: '/images/BlackCrusherDust.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Decorative landscaping',
       'Modern garden designs',
@@ -50,7 +50,7 @@ export const products = [
     name: '20mm Roadbase',
     image: '/images/20mmRoadbase.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Road construction',
       'Driveway foundations',
@@ -73,7 +73,7 @@ export const products = [
     name: '10mm White Aggregate',
     image: '/images/10mmWhiteAggregate.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Decorative landscaping',
       'Garden pathways',
@@ -96,7 +96,7 @@ export const products = [
     name: '16mm White Aggregate',
     image: '/images/16mmWhiteAggregate.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Decorative landscaping',
       'Garden pathways',
@@ -119,7 +119,7 @@ export const products = [
     name: '28mm White Aggregate',
     image: '/images/28mmWhiteAggregate.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Decorative landscaping',
       'Garden pathways',
@@ -142,7 +142,7 @@ export const products = [
     name: '40-60mm Ballast',
     image: '/images/40-60mmBallast.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Railway track construction',
       'Heavy-duty foundations',
@@ -165,7 +165,7 @@ export const products = [
     name: '150-300mm Ballast',
     image: '/images/150to300mmballast.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Railway track construction',
       'Heavy-duty foundations',
@@ -188,7 +188,7 @@ export const products = [
     name: 'Concrete Mix',
     image: '/images/Concretemix.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Concrete foundations',
       'Slab construction',
@@ -211,7 +211,7 @@ export const products = [
     name: 'Red Granite',
     image: '/images/RedGranite.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Decorative landscaping',
       'Garden pathways',
@@ -234,7 +234,7 @@ export const products = [
     name: '10mm Blue Metal',
     image: '/images/10mmbluemetal.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Concrete production',
       'Road construction',
@@ -257,7 +257,7 @@ export const products = [
     name: '20mm Blue Metal',
     image: '/images/20mmbluemetal.jpg',
     description: '',
-    category: '',
+    category: 'Aggregates',
     featuresAndApplications: [
       'Concrete production',
       'Road construction',
@@ -280,7 +280,7 @@ export const products = [
     name: 'Organic Garden Mix (OGM)',
     image: '/images/OrganicGardenMix.jpg',
     description: '',
-    category: '',
+    category: 'Soil',
     featuresAndApplications: [
       'Garden bed preparation',
       'Vegetable gardens',
@@ -303,7 +303,7 @@ export const products = [
     name: 'OGM / Tospoil',
     image: '/images/OrganicGardenMixtopsoil.jpg',
     description: '',
-    category: '',
+    category: 'Soil',
     featuresAndApplications: [
       'Garden bed preparation',
       'Vegetable gardens',
@@ -326,7 +326,7 @@ export const products = [
     name: 'Wackas Mix',
     image: '/images/WackasMix.jpg',
     description: '',
-    category: '',
+    category: 'Soil',
     featuresAndApplications: [
       'Garden bed preparation',
       'Vegetable gardens',
@@ -349,7 +349,7 @@ export const products = [
     name: 'Topsoil',
     image: '/images/Topsoil.jpg',
     description: '',
-    category: '',
+    category: 'Soil',
     featuresAndApplications: [
       'Lawn establishment',
       'Garden bed preparation',
@@ -372,7 +372,7 @@ export const products = [
     name: 'Mushroom Compost',
     image: '/images/MushroomCompost.jpg',
     description: '',
-    category: '',
+    category: 'Soil',
     featuresAndApplications: [
       'Soil enrichment',
       'Garden bed preparation',
@@ -395,7 +395,7 @@ export const products = [
     name: 'Washed River Sand',
     image: '/images/WashedRiverSand.jpg',
     description: '',
-    category: '',
+    category: 'Sand',
     featuresAndApplications: [
       'Concrete production',
       'Mortar mixing',
@@ -418,7 +418,7 @@ export const products = [
     name: 'Beach Sand',
     image: '/images/Beachsand.jpg',
     description: '',
-    category: '',
+    category: 'Sand',
     featuresAndApplications: [
       'Playground surfaces',
       'Horse arenas',
@@ -441,7 +441,7 @@ export const products = [
     name: 'Yellow Brickie Sand',
     image: '/images/yellowbrickiesand.jpg',
     description: '',
-    category: '',
+    category: 'Sand',
     featuresAndApplications: [
       'Bricklaying mortar',
       'Construction projects',
@@ -464,7 +464,7 @@ export const products = [
     name: 'White Brickie Sand',
     image: '/images/whitebrickiesand.jpg',
     description: '',
-    category: '',
+    category: 'Sand',
     featuresAndApplications: [
       'Bricklaying mortar',
       'Construction projects',
@@ -487,7 +487,7 @@ export const products = [
     name: '7mm Peagravel',
     image: '/images/7mmPeagravel.jpg',
     description: '',
-    category: '',
+    category: 'Pebbles',
     featuresAndApplications: [
       'Decorative landscaping',
       'Garden pathways',
@@ -510,7 +510,7 @@ export const products = [
     name: '14/20 Rivergravel',
     image: '/images/14to20mmrivergravel.jpg',
     description: '',
-    category: '',
+    category: 'Pebbles',
     featuresAndApplications: [
       'Decorative landscaping',
       'Garden pathways',
@@ -533,7 +533,7 @@ export const products = [
     name: 'Cypress Pine Chip',
     image: '/images/CypressPineChip.jpg',
     description: '',
-    category: '',
+    category: 'Mulch',
     featuresAndApplications: [
       'Garden mulch',
       'Weed suppression',
@@ -556,7 +556,7 @@ export const products = [
     name: 'Golden Bark Mulch',
     image: '/images/GoldenBarkMulch.jpg',
     description: '',
-    category: '',
+    category: 'Mulch',
     featuresAndApplications: [
       'Garden mulch',
       'Weed suppression',
@@ -579,7 +579,7 @@ export const products = [
     name: 'Midnight Mulch',
     image: '/images/MidnightMulch.jpg',
     description: '',
-    category: '',
+    category: 'Mulch',
     featuresAndApplications: [
       'Garden mulch',
       'Weed suppression',
@@ -602,7 +602,7 @@ export const products = [
     name: 'Mini Nugget Mulch',
     image: '/images/MiniNuggetMulch.jpg',
     description: '',
-    category: '',
+    category: 'Mulch',
     featuresAndApplications: [
       'Garden mulch',
       'Weed suppression',
@@ -625,7 +625,7 @@ export const products = [
     name: '2m Sandstone Blocks',
     image: '/images/2msandstoneblocks.jpg',
     description: '',
-    category: '',
+    category: 'Sandstone',
     featuresAndApplications: [
       'Retaining walls',
       'Garden walls',
@@ -648,7 +648,7 @@ export const products = [
     name: '1m Sandstone Blocks',
     image: '/images/1msandstoneblocks.jpg',
     description: '',
-    category: '',
+    category: 'Sandstone',
     featuresAndApplications: [
       'Retaining walls',
       'Garden walls',
@@ -671,7 +671,7 @@ export const products = [
     name: 'Railway Sleepers',
     image: '/images/railwaysleepers.jpg',
     description: '',
-    category: '',
+    category: 'Random and unique',
     featuresAndApplications: [
       'Retaining walls',
       'Garden edging',
@@ -694,7 +694,7 @@ export const products = [
     name: 'Off White Cement',
     image: '/images/offwhitecement20KG.jpg',
     description: '',
-    category: '',
+    category: 'Bagged Products',
     featuresAndApplications: [
       'Decorative concrete',
       'Architectural elements',
@@ -717,7 +717,7 @@ export const products = [
     name: 'General Purpose Cement 20kg',
     image: '/images/generalpurposecement20KG.jpg',
     description: '',
-    category: '',
+    category: 'Bagged Products',
     featuresAndApplications: [
       'Concrete mixing',
       'Mortar preparation',
@@ -740,7 +740,7 @@ export const products = [
     name: 'Clay 20kg',
     image: '/images/clay20kg.jpg',
     description: '',
-    category: '',
+    category: 'Bagged Products',
     featuresAndApplications: [
       'Pottery making',
       'Craft projects',
@@ -763,7 +763,7 @@ export const products = [
     name: 'Concrete Mix 20kg',
     image: '/images/concretemix20kg.jpg',
     description: '',
-    category: '',
+    category: 'Bagged Products',
     featuresAndApplications: [
       'Small concrete projects',
       'DIY construction',
@@ -786,7 +786,7 @@ export const products = [
     name: 'Firewood',
     image: '/images/Firewood.jpg',
     description: '',
-    category: '',
+    category: 'Random and unique',
     featuresAndApplications: [
       'Heating and warmth',
       'Fireplaces',
@@ -809,7 +809,7 @@ export const products = [
     name: 'Aagline 100mm x 20m',
     image: '/images/sockedaggline.jpg',
     description: '',
-    category: '',
+    category: 'Random and unique',
     featuresAndApplications: [
       'Drainage systems',
       'Landscape drainage',
@@ -832,7 +832,7 @@ export const products = [
     name: 'Geofabric 2m x 50m',
     image: '/images/geofabric.jpg',
     description: '',
-    category: '',
+    category: 'Random and unique',
     featuresAndApplications: [
       'Erosion control',
       'Soil stabilization',
@@ -855,7 +855,7 @@ export const products = [
     name: '300mm x 300mm x 1m Sandstone Billets',
     image: '/images/sandstonebillet.jpg',
     description: '',
-    category: '',
+    category: 'Sandstone',
     featuresAndApplications: [
       'Retaining walls',
       'Garden walls',

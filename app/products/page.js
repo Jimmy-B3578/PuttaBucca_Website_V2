@@ -1,6 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { products } from '../config/products.config.js';
+import CategoryFilter from '../components/CategoryFilter';
 
 // Helper function to generate slugs
 const slugify = (text) => text.toString().toLowerCase()
@@ -10,20 +15,42 @@ const slugify = (text) => text.toString().toLowerCase()
   .replace(/^-+/, '')
   .replace(/-+$/, '');
 
-// Group products by category
-const groupedProducts = products.reduce((acc, product) => {
-    const category = product.category;
+export default function ProductsPage() {
+  const searchParams = useSearchParams();
+  const [selectedCategory, setSelectedCategory] = useState('');
+
+  // Initialize category from URL parameter
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get('category');
+    if (categoryFromUrl) {
+      setSelectedCategory(categoryFromUrl);
+    }
+  }, [searchParams]);
+
+  // Filter products based on selected category
+  const filteredProducts = selectedCategory 
+    ? products.filter(product => product.category === selectedCategory)
+    : products;
+
+  // Group filtered products by category
+  const groupedProducts = filteredProducts.reduce((acc, product) => {
+    const category = product.category || 'Uncategorized';
     if (!acc[category]) {
-        acc[category] = [];
+      acc[category] = [];
     }
     acc[category].push(product);
     return acc;
-}, {});
+  }, {});
 
-export default function ProductsPage() {
   return (
     <div className="container">
       <h1 className="section-title" style={{ textAlign: 'center', marginTop: '40px' }}>Our Products</h1>
+      
+      <CategoryFilter 
+        products={products}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
       
       {Object.entries(groupedProducts).map(([category, productsInCategory]) => (
         <div key={category} className="product-category-group">

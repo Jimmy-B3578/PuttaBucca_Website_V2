@@ -28,7 +28,13 @@ const ProductDetailPage = async ({ params }) => {
   return (
     <div className="container product-detail-page">
         <nav className="product-breadcrumb">
-            <Link href="/">Home</Link> / <Link href="/products">Products</Link> / <span>{product.name}</span>
+            <Link href="/">Home</Link> / <Link href="/products">Products</Link> 
+            {product.category && (
+              <>
+                / <Link href={`/products?category=${encodeURIComponent(product.category)}`}>{product.category}</Link>
+              </>
+            )}
+            / <span>{product.name}</span>
         </nav>
         <div className="product-detail-container">
             <div className="product-image-gallery">
