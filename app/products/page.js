@@ -80,7 +80,7 @@ export default function ProductsPage() {
           <h2 className="category-title">{category}</h2>
           <div className="product-grid">
             {productsInCategory.map((product) => (
-              <div key={product.id} className="card">
+              <div key={product.id} className={`card ${product.category === 'Bagged Products' ? 'bagged-product' : ''}`}>
                 <Image src={product.image} alt={product.name} width={300} height={200} style={{ objectFit: 'cover' }} />
                 <div className="card-content">
                   <span className="product-category">{product.category}</span>

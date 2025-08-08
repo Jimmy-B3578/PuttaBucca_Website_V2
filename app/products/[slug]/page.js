@@ -36,7 +36,7 @@ const ProductDetailPage = async ({ params }) => {
             )}
             / <span>{product.name}</span>
         </nav>
-        <div className="product-detail-container">
+        <div className={`product-detail-container ${product.category === 'Bagged Products' ? 'bagged-product' : ''}`}>
             <div className="product-image-gallery">
                 <div className="product-main-image">
                     <Image src={product.image} alt={product.name} width={600} height={600} style={{objectFit: 'cover'}} />
@@ -49,7 +49,15 @@ const ProductDetailPage = async ({ params }) => {
                 <div className="price-stock-container">
                     <div className="measurement-info">
                         <span>Measured by:</span>
-                        <strong>{product.unit === 'per tonne' ? 'Weight (tonnes)' : 'Volume (m³)'}</strong>
+                        <strong>
+                            {product.unit === 'per tonne' ? 'Weight (tonnes)' : 
+                             product.unit === 'per 20KG bag' ? 'Per Bag (20KG bags)' :
+                             product.unit === 'per m³' ? 'Volume (m³)' :
+                             product.unit === 'per cubic meter' ? 'Volume (m³)' :
+                             product.unit === 'per unit' ? 'Individual units' :
+                             product.unit === 'per roll' ? 'Rolls' :
+                             'Volume (m³)'}
+                        </strong>
                         {product.density && (
                             <small>Approx. {product.density} tonnes per m³</small>
                         )}

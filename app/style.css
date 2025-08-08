@@ -633,6 +633,12 @@ footer {
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
+/* Smaller images for bagged products on detail page */
+.product-detail-container.bagged-product .product-image-gallery .product-main-image img {
+    max-height: 800px;
+    max-width: 800px;
+}
+
 .product-info-column .category-badge {
     display: inline-block;
     padding: 6px 12px;
@@ -1266,6 +1272,16 @@ footer {
     width: 100%;
     height: 180px;
     object-fit: cover;
+}
+
+/* Smaller images for bagged products */
+.product-grid .card.bagged-product img {
+    height: 180px;
+    width: auto;
+    max-width: calc(100% - 140px);
+    object-fit: contain;
+    object-position: center;
+    padding: 10px;
 }
 
 .product-grid .card .card-content {
