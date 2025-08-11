@@ -20,7 +20,7 @@ export default function ServicesPage() {
             <div className="service-card">
               <div className="icon">&#x1F331;</div>
               <h3>Expert Project Advice</h3>
-              <p>With over 20 years of experience, our team can offer invaluable advice on material selection, quantity estimation, and best practices for your specific project needs.</p>
+              <p>With over 10+ years of experience, our team can offer invaluable advice on material selection, quantity estimation, and best practices for your specific project needs.</p>
             </div>
             <div className="service-card">
               <div className="icon">&#x1F4DD;</div>

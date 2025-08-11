@@ -5,7 +5,10 @@ const Header = () => {
     <header>
       <nav>
         <div className="logo">
-          <Link href="/">Putta Bucca Landscapes</Link>
+          <Link href="/">
+            <img className="logo-icon" src="/images/favicon.png" alt="" aria-hidden="true" />
+            Putta Bucca Landscapes
+          </Link>
         </div>
         <div className="nav-right">
           <ul>

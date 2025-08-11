@@ -7,7 +7,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 80px; /* Account for fixed header */
+    padding-top: 64px; /* Account for fixed header (reduced) */
     box-sizing: border-box;
     background-color: #f4f4f4;
     color: #333;
@@ -57,6 +57,19 @@ header .logo a {
     font-weight: bold;
 }
 
+/* Inline favicon in header */
+header .logo a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+}
+
 header nav ul {
     list-style: none;
     padding: 0;
@@ -102,31 +115,27 @@ header nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    height: 50vh;
+    min-height: 50vh; /* slightly tighter */
     background: #f4f4f4;
     display: flex;
     align-items: center;
-    justify-content: center;
     color: #333;
-    margin-top: -80px; /* Offset the body padding for hero section */
-    padding-top: 80px; /* Add padding to maintain hero content position */
 }
 
 .hero-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
     align-items: center;
-    justify-content: space-between;
-    max-width: 1400px;
+    gap: 2rem;
     width: 100%;
-    height: 100%;
-    padding: 0 3rem;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .hero-content {
-    flex: 1;
-    max-width: 600px;
+    max-width: 800px;
     text-align: left;
-    padding-right: 4rem;
 }
 
 .hero-logo {
@@ -138,7 +147,6 @@ header nav ul li a:hover {
 }
 
 .hero-image {
-    flex: 1;
     height: 100%;
     display: flex;
     align-items: center;
@@ -146,11 +154,12 @@ header nav ul li a:hover {
 }
 
 .hero-image img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 520px;
     object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
 }
 
 .hero h1 {
@@ -228,7 +237,7 @@ header nav ul li a:hover {
 
 /* Why Choose Us Section */
 #why-choose-us {
-    padding: 60px 0;
+    padding: 40px 0; /* reduced to tighten space below hero */
 }
 
 .features-grid {
@@ -428,9 +437,9 @@ header nav ul li a:hover {
 .cta-section {
     background: #2e7d32;
     color: #fff;
-    padding: 40px 0;
+    padding: 32px 0; /* reduced */
     text-align: center;
-    margin-bottom: 0px; /* Add space at the bottom */
+    margin-bottom: 0px;
 }
 
 .cta-section .container {
@@ -479,12 +488,10 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
-        padding-top: 140px; /* More padding for mobile with stacked nav */
+        padding-top: 110px; /* Reduced mobile offset while avoiding overlap */
     }
     
-    header nav {
-        flex-direction: column;
-    }
+    header nav { flex-direction: column; }
 
     header nav ul {
         flex-direction: column;
@@ -496,22 +503,16 @@ footer {
         text-align: center;
     }
 
-    .hero {
-        margin-top: -140px; /* Offset for mobile */
-        padding-top: 140px;
-    }
+    .hero { min-height: 70vh; }
 
     .hero-container {
+        display: flex;
         flex-direction: column;
         text-align: center;
         padding: 2rem 1rem;
     }
 
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 2rem;
-        text-align: center;
-    }
+    .hero-content { margin-bottom: 2rem; text-align: center; }
 
     .nav-right {
         flex-direction: column;
@@ -523,10 +524,7 @@ footer {
         display: inline-block;
     }
 
-    .hero-image {
-        width: 100%;
-        max-width: 400px;
-    }
+    .hero-image { width: 100%; max-width: 520px; }
 
     .hero h1 {
         font-size: 2rem;
