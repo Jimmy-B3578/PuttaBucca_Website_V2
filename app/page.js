@@ -6,6 +6,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-container">
                   <div className="hero-content">
+          <img className="hero-logo" src="/images/Logo.png" alt="Putta Bucca Landscapes logo" />
           <h1 className="animate-fade-in-down">Your Trusted Partner for Quality Landscape Supplies</h1>
           <p className="animate-fade-in-up">From decorative stones to quality soils, we have everything you need for your next landscaping project.</p>
           <HeroButtons />

@@ -7,6 +7,11 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata = {
   title: 'Putta-Bucca Landscape Supplies',
   description: 'Your local supplier for garden, building, and landscape materials in Mudgee.',
+  icons: {
+    icon: [{ url: '/images/favicon.png', type: 'image/png' }],
+    shortcut: ['/images/favicon.png'],
+    apple: ['/images/favicon.png']
+  }
 };
 
 export default function RootLayout({ children }) {
