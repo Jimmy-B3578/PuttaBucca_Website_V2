@@ -22,7 +22,7 @@ export default function HomePage() {
           <div className="feature-item">
             <div className="feature-icon">&#x1F46A;</div>
             <h3>Family Owned & Operated</h3>
-            <p>We are a family-owned business with over 20 years of experience, dedicated to serving the Mudgee region.</p>
+            <p>We are a family-owned business with over 10+ years of experience, dedicated to serving the Mudgee region.</p>
           </div>
           <div className="feature-item">
             <div className="feature-icon">&#x1F33F;</div>
