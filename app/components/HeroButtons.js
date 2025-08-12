@@ -38,7 +38,7 @@ export default function HeroButtons() {
 
   return (
     <div>
-      <Link href={isCalculatorOpen ? '/products' : '/products'} onClick={handleProductsClick} className="cta-button animate-fade-in-up">View Our Products</Link>
+      <Link href={'/products'} onClick={handleProductsClick} className="cta-button animate-fade-in-up">View Our Products</Link>
       <a href="#calculator" onClick={handleToggleCalculator} className="cta-button secondary animate-fade-in-up">Calculate Your Project</a>
     </div>
   );

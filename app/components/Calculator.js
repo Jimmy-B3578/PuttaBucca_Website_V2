@@ -23,6 +23,7 @@ const Calculator = () => {
   const [weight, setWeight] = useState(0);
   const [selectedMaterial, setSelectedMaterial] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -82,6 +83,10 @@ const Calculator = () => {
   };
 
   useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
     // Open when hash is #calculator; do not auto-close on hash removal
     const syncFromHash = () => {
       if (typeof window === 'undefined') return;
@@ -134,9 +139,29 @@ const Calculator = () => {
   };
 
   return (
-    <div id="universal-calculator-sidebar" className={isOpen ? 'open' : ''}>
-      <div id="calc-toggle-tab" onClick={() => setIsOpen(true)}>
-        CALCULATOR
+    <>
+      {/* Mobile floating action button (hidden on desktop via CSS) */}
+      {hasMounted && !isOpen && (
+        <button
+          type="button"
+          className="calc-fab"
+          aria-label="Open calculator"
+          onClick={() => setIsOpen(true)}
+        >
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+            <path d="M7 2h10a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v3h12V5a1 1 0 0 0-1-1H7zm11 6H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10zM8 12h2v2H8v-2zm3 0h2v2h-2v-2zm3 0h2v2h-2v-2zM8 15h2v2H8v-2zm3 0h2v2h-2v-2zm3 0h2v2h-2v-2z" />
+          </svg>
+        </button>
+      )}
+
+      <div id="universal-calculator-sidebar" className={isOpen ? 'open' : ''}>
+      <div id="calc-toggle-tab" onClick={() => setIsOpen(true)} aria-label="Open calculator">
+        <span className="calc-tab-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M7 2h10a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v3h12V5a1 1 0 0 0-1-1H7zm11 6H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10zM8 12h2v2H8v-2zm3 0h2v2h-2v-2zm3 0h2v2h-2v-2zM8 15h2v2H8v-2zm3 0h2v2h-2v-2zm3 0h2v2h-2v-2z" />
+          </svg>
+        </span>
+        <span className="calc-tab-label">CALCULATOR</span>
       </div>
       <div className="calc-content">
         <div className="calc-header">
@@ -261,6 +286,7 @@ const Calculator = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

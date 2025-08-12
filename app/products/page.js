@@ -17,8 +17,8 @@ const slugify = (text) => text.toString().toLowerCase()
 
 export default function ProductsPage() {
   const router = useRouter();
-  const initialCategory = typeof window !== 'undefined' ? (new URLSearchParams(window.location.search).get('category') || '') : '';
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  // Initialize empty to match SSR markup; sync from URL on mount
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   // Initialize and update category from URL parameter
   useEffect(() => {
@@ -62,6 +62,26 @@ export default function ProductsPage() {
 
   // No loading gate – render immediately with fade-in
 
+  const navigateToProduct = (productName) => {
+    const slug = slugify(productName);
+    router.push(`/products/${slug}`);
+  };
+
+  const handleCardClick = (event, product) => {
+    // Only activate on phones
+    if (typeof window === 'undefined') return;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (!isMobile) return;
+
+    // Ignore clicks originating from interactive elements
+    if (event.target && typeof event.target.closest === 'function') {
+      const interactiveAncestor = event.target.closest('a, button');
+      if (interactiveAncestor) return;
+    }
+
+    navigateToProduct(product.name);
+  };
+
   return (
     <div className="container animate-fade-in-up">
       <h1 className="section-title" style={{ textAlign: 'center', marginTop: '40px' }}>Our Products</h1>
@@ -77,7 +97,12 @@ export default function ProductsPage() {
           <h2 className="category-title">{category}</h2>
           <div className="product-grid fade-cards">
             {productsInCategory.map((product) => (
-              <div key={product.id} className={`card ${product.category === 'Bagged Products' ? 'bagged-product' : ''}`}>
+              <div
+                key={product.id}
+                className={`card ${product.category === 'Bagged Products' ? 'bagged-product' : ''}`}
+                onClick={(e) => handleCardClick(e, product)}
+                role="link"
+              >
                 <Image src={product.image} alt={product.name} width={300} height={200} style={{ objectFit: 'cover' }} />
                 <div className="card-content">
                   <span className="product-category">{product.category}</span>

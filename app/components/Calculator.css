@@ -36,7 +36,7 @@
     box-shadow: -2px -2px 10px rgba(0,0,0,0.1);
     z-index: -1;
     /* Added for better centering of text */
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     height: 40px;
@@ -94,6 +94,77 @@
 
 .calc-close-btn:hover {
     color: #333;
+}
+
+/* Calculator tab label and icon */
+.calc-tab-icon { display: inline-flex; margin-right: 8px; }
+.calc-tab-label { display: inline; font-weight: 700; letter-spacing: 0.3px; }
+
+/* On phones, show only icon on the toggle tab to save space */
+@media (max-width: 768px) {
+  #calc-toggle-tab {
+    width: 56px; /* slimmer tab on phones */
+    left: -56px; /* match rotated width */
+    padding: 10px 12px;
+  }
+  .calc-tab-label { display: none; }
+  .calc-tab-icon { margin-right: 0; }
+}
+
+/* Floating Action Button for mobile */
+@media (max-width: 768px) {
+  .calc-fab {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #2e7d32;
+    color: #fff;
+    border: none;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2100;
+    cursor: pointer;
+  }
+
+  /* Hide the side tab entirely on mobile */
+  #calc-toggle-tab { display: none; }
+}
+
+/* Fullscreen calculator on mobile when open */
+@media (max-width: 768px) {
+  #universal-calculator-sidebar {
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateY(100%);
+    border-radius: 0;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    background-color: #ffffff;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 2500;
+  }
+  #universal-calculator-sidebar.open {
+    transform: translateY(0);
+  }
+
+  .calc-content {
+    padding: 16px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .calc-header {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+  }
 }
 
 .calc-header h3 {

@@ -44,7 +44,7 @@ export default function ContactPage() {
       <section className="contact-hero">
         <div className="container">
           <h1>Get in Touch</h1>
-          <p>We're here to help with all your landscaping supply needs. Reach out for quotes, questions, or expert advice.</p>
+          <p>We're here to help with all your landscaping supply needs.</p>
         </div>
       </section>
 
