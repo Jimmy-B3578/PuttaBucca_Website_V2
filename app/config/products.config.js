@@ -14,6 +14,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.6,
     specifications: {
       'Color': 'light grey',
       'Size': '7mm',
@@ -37,6 +38,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.6,
     specifications: {
       'Color': 'Grey',
       'Size': '5mm',
@@ -60,6 +62,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.5,
     specifications: {
       'Color': 'Light Grey',
       'Size': '20mm',
@@ -82,6 +85,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.4,
     specifications: {
       'Color': 'Light Grey',
       'Size': '10mm',
@@ -104,6 +108,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.4,
     specifications: {
       'Color': 'Light Grey',
       'Size': '16mm',
@@ -126,6 +131,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.4,
     specifications: {
       'Color': 'Light Grey',
       'Size': '28mm',
@@ -147,6 +153,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.1,
     specifications: {
       'Color': 'Light Grey',
       'Size': '40-60mm',
@@ -169,6 +176,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1,
     specifications: {
       'Color': 'Light Grey',
       'Size': '150-300mm',
@@ -190,6 +198,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.4,
     specifications: {
       'Color': 'Grey',
       'Size': '16mm',
@@ -211,6 +220,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.3,
     specifications: {
       'Color': 'terracotta',
       'Size': '7mm',
@@ -232,6 +242,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.5,
     specifications: {
       'Color': 'Dark Grey',
       'Size': '10mm',
@@ -253,6 +264,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.5,
     specifications: {
       'Color': 'Dark Grey',
       'Size': '20mm',
@@ -338,6 +350,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.5,
     specifications: {
       'Color': 'Brown',
       'Size': '',
@@ -380,6 +393,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.5,
     specifications: {
       'Color': 'Light Brown',
       'Size': '1mm',
@@ -402,6 +416,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 1.5,
     specifications: {
       'Color': 'Beige',
       'Size': '',
@@ -466,6 +481,7 @@ export const products = [
     ],
     unit: 'per tonne',
     inStock: true,
+    density: 2,
     specifications: {
       'Color': 'Mixed browns, tan, grey and terracotta',
       'Size': '7mm',
@@ -487,6 +503,7 @@ export const products = [
             ],
     unit: 'per tonne',
     inStock: true,
+    density: 2,
     specifications: {
       'Color': 'Mixed browns, tan, grey and terracotta',
       'Size': '14-20mm',

@@ -15,7 +15,7 @@ export default function ServicesPage() {
             <div className="service-card">
               <div className="icon">&#x1F69A;</div>
               <h3>Bulk Haulage & Delivery</h3>
-              <p>We provide fast and reliable delivery of all our bulk products, including soils, mulches, and aggregates, directly to your project site or home in the Mudgee region.</p>
+              <p>We deliver all of our landscaping materials right to your door in town for a flat fee of $25. Simple, affordable, and reliable—no surprises, just great service. Call us for our delivery rates out of town.</p>
             </div>
             <div className="service-card">
               <div className="icon">&#x1F331;</div>

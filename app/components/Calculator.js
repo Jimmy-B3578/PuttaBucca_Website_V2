@@ -211,9 +211,14 @@ const Calculator = () => {
                     </option>
                   ))}
                 </select>
+                {selectedMaterial && selectedMaterial.unit === 'per tonne' && selectedMaterial.density != null && selectedMaterial.density !== '' && (
+                  <div style={{ marginTop: '6px' }}>
+                    <strong>Density: {selectedMaterial.density} tonnes/m³</strong>
+                  </div>
+                )}
               </div>
               {weight > 0 && selectedMaterial && selectedMaterial.unit === 'per tonne' && (
-                <div className="calc-result-item">
+                <div className="calc-result-item weight-emphasis">
                   <span>Estimated Weight:</span>
                   <strong id="calc-weight-result">{weight.toFixed(2)} tonnes</strong>
                 </div>

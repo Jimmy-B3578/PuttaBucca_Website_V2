@@ -58,9 +58,7 @@ const ProductDetailPage = async ({ params }) => {
                              product.unit === 'per roll' ? 'Rolls' :
                              'Volume (m³)'}
                         </strong>
-                        {product.density && (
-                            <small>Approx. {product.density} tonnes per m³</small>
-                        )}
+
                     </div>
                     <span className={`stock-status ${product.inStock ? 'in-stock' : 'out-of-stock'}`}>
                         {product.inStock ? 'In Stock' : 'Out of Stock'}
@@ -84,6 +82,9 @@ const ProductDetailPage = async ({ params }) => {
                                 <div className="product-specs">
                                     <h3>Specifications</h3>
                                     <ul>
+                                        {product.unit === 'per tonne' && product.density != null && product.density !== '' && (
+                                            <li><strong>Density:</strong> {product.density} tonnes per m³</li>
+                                        )}
                                         {validSpecs.map(([key, value]) => (
                                             <li key={key}><strong>{key}:</strong> {value}</li>
                                         ))}

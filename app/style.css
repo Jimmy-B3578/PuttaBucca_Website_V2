@@ -1191,7 +1191,7 @@ footer {
 /* Contact Page Hero */
 .contact-hero {
     height: 15vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/topsoil-mix-1.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/Topsoil.jpg') no-repeat center center/cover;
     color: white;
     display: flex;
     align-items: center;
