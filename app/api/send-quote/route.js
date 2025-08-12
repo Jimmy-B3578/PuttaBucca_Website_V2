@@ -10,7 +10,7 @@ export async function POST(request) {
     const { name, email, phone, quantity, unit, productName, message } = body;
 
     const { data, error } = await resend.emails.send({
-      from: 'Customer Quote - website <sales@puttabucca.com.au>', // This must be a verified domain in Resend
+      from: 'Customer Quote - website <quotes@puttabuccalandscapes.com.au>', // This must be a verified domain in Resend
       to: ['sales@puttabucca.com.au'], // The email address you want to receive quotes at
       subject: `New Quote Request for ${productName}`,
       react: EmailTemplate({ name, email, phone, quantity, unit, productName, message }),
