@@ -533,27 +533,6 @@ export const products = [
     deliveryInfo: 'Available for bulk delivery in Mudgee and surrounding areas. Contact us for a quote.'
   },
   {
-    id: 25,
-    name: 'Golden Bark Mulch',
-    image: '/images/GoldenBarkMulch.jpg',
-    description: "Golden Bark Mulch is a light brown, finely shredded cypress mulch that enhances soil health while providing an attractive ground cover. Its golden tone brightens garden beds and contrasts beautifully with green foliage. This mulch helps to regulate soil temperature, conserve moisture, and reduce weed growth. Made from sustainable materials, it is both functional and aesthetically appealing.",
-    category: 'Mulch',
-    featuresAndApplications: [
-      'Weed suppression',
-      'Moisture retention',
-      'Decorative landscaping',
-      'Playground surfaces'
-    ],
-    unit: 'per m³',
-    inStock: true,
-    specifications: {
-      'Color': 'Light Brown',
-      'Size': '1cm',
-      'Material': 'Cypress'
-    },
-    deliveryInfo: 'Available for bulk delivery in Mudgee and surrounding areas. Contact us for a quote.'
-  },
-  {
     id: 26,
     name: 'Midnight Mulch',
     image: '/images/MidnightMulch.jpg',
