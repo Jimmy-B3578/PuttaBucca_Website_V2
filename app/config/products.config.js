@@ -845,7 +845,7 @@ export const products = [
     id: 40,
     name: 'RedWood Chip',
     image: '/images/redwoodchip.jpg',
-    description: "Redwood Chip is a high-quality, dense wood chip mulch that provides a natural, long-lasting solution for garden beds, pathways, and yarning circles. It is made from sustainably sourced redwood wood, which is a dense, durable material that is resistant to rot and decay. Redwood Chip is a great way to add a natural, rustic look to your garden, and it is also a great way to suppress weeds and retain moisture in the soil.",
+    description: "Redwood Chip is a high-quality, dense wood chip mulch that provides a natural, long-lasting solution for garden beds, pathways, and yarning circles. It is made from sustainably sourced recycled plantation material with a natural red dye",
     category: 'Clearance',
     featuresAndApplications: [
       'Garden beds', 
