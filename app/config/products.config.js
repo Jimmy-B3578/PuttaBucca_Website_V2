@@ -840,5 +840,28 @@ export const products = [
       'Material': ''
     },
     deliveryInfo: 'Available for bulk delivery in Mudgee and surrounding areas. Contact us for a quote.'
+  },
+  {
+    id: 40,
+    name: 'RedWood Chip',
+    image: '/images/redwoodchip.jpg',
+    description: "Redwood Chip is a high-quality, dense wood chip mulch that provides a natural, long-lasting solution for garden beds, pathways, and yarning circles. It is made from sustainably sourced redwood wood, which is a dense, durable material that is resistant to rot and decay. Redwood Chip is a great way to add a natural, rustic look to your garden, and it is also a great way to suppress weeds and retain moisture in the soil.",
+    category: 'Clearance',
+    featuresAndApplications: [
+      'Garden beds', 
+      'Pathways',
+      'Yarning circles',
+      'Mulch',
+      'Weed suppression',
+      'Moisture retention'
+    ],
+    unit: 'per m³',
+    inStock: true,
+    specifications: {
+      'Color': 'Red',
+      'Size': 'Mixed sizes',
+      'Material': 'Redwood Wood'
+    },
+    deliveryInfo: 'Available for bulk delivery in Mudgee and surrounding areas. Contact us for a quote.'
   }
 ]; 
