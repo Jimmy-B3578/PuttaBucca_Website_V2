@@ -2,7 +2,6 @@ import './style.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Analytics } from "@vercel/analytics/next";
-import SalePopup from './components/SalePopup';
 
 export const metadata = {
   title: 'Putta-Bucca Landscape Supplies',
@@ -21,7 +20,6 @@ export default function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
-        <SalePopup />
         <Analytics />
       </body>
     </html>
