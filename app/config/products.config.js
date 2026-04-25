@@ -532,28 +532,28 @@ export const products = [
     },
     deliveryInfo: 'Available for bulk delivery in Mudgee and surrounding areas. Contact us for a quote.'
   },
-  {
-    id: 26,
-    name: 'Midnight Mulch',
-    image: '/images/MidnightMulch.jpg',
-    description: "Add striking contrast and lasting performance to your garden with Midnight Mulch a premium, dark-coloured mulch designed to enhance plant health while creating a clean, modern look. Made from sustainably sourced timber and dyed with long-lasting, non-toxic black colourants, Midnight Mulch is perfect for both residential and commercial landscapes.",
-    category: 'Mulch',
-    featuresAndApplications: [
-      'Garden mulch',
-      'Weed suppression',
-      'Moisture retention',
-      'Decorative landscaping',
-      'Playground surfaces'
-    ],
-    unit: 'per m³',
-    inStock: true,
-    specifications: {
-      'Color': 'Black',
-      'Size': '3cm',
-      'Material': 'recycled wood'
-    },
-    deliveryInfo: 'Available for bulk delivery in Mudgee and surrounding areas. Contact us for a quote.'
-  },
+//  {
+//    id: 26,
+//    name: 'Midnight Mulch',
+//    image: '/images/MidnightMulch.jpg',
+//    description: "Add striking contrast and lasting performance to your garden with Midnight Mulch a premium, dark-coloured mulch designed to enhance plant health while creating a clean, modern look. Made from sustainably sourced timber and dyed with long-lasting, non-toxic black colourants, Midnight Mulch is perfect for both residential and commercial landscapes.",
+//    category: 'Mulch',
+//    featuresAndApplications: [
+//      'Garden mulch',
+//      'Weed suppression',
+//      'Moisture retention',
+//      'Decorative landscaping',
+//      'Playground surfaces'
+//    ],
+//    unit: 'per m³',
+//    inStock: true,
+//    specifications: {
+//      'Color': 'Black',
+//      'Size': '3cm',
+//      'Material': 'recycled wood'
+//    },
+//    deliveryInfo: 'Available for bulk delivery in Mudgee and surrounding areas. Contact us for a quote.'
+//  },
   {
     id: 27,
     name: 'Mini Nugget Mulch',
