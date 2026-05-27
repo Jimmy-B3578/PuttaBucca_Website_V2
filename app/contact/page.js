@@ -57,7 +57,7 @@ export default function ContactPage() {
                 <li><span className="icon">&#x1F4CD;</span><div><strong>Address:</strong><br />19 Industrial Ave, Mudgee NSW 2850</div></li>
                 <li><span className="icon">&#x260E;</span><div><strong>Phone:</strong><br />0419 669 003</div></li>
                 <li><span className="icon">&#x2709;</span><div><strong>Email:</strong><br />sales@puttabucca.com.au</div></li>
-                <li><span className="icon">&#x1F551;</span><div><strong>Hours:</strong><br />Mon - Fri: 7am - 5pm<br />Sat: 8am - 1pm</div></li>
+                <li><span className="icon">&#x1F551;</span><div><strong>Hours:</strong><br />Mon - Fri: 7am - 4pm<br />Sat: 8am - 1pm</div></li>
               </ul>
               <h3>Our Location</h3>
               <div className="google-map-container">
