@@ -18,6 +18,14 @@ const QuoteForm = ({ product, onClose }) => {
     };
   }, [onClose]);
 
+  useEffect(() => {
+    // Jump to the first field with a mouse and keyboard only; on touch screens this
+    // would throw the on-screen keyboard up over the form before the visitor taps anything
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      document.getElementById('name')?.focus();
+    }
+  }, []);
+
   if (!product) return null;
 
   const handleSubmit = async (e) => {
@@ -86,7 +94,7 @@ const QuoteForm = ({ product, onClose }) => {
         <form onSubmit={handleSubmit} className="quote-form">
           <div className="form-group">
             <label htmlFor="name">Full Name</label>
-            <input type="text" id="name" name="name" autoComplete="name" required disabled={isSubmitting} autoFocus />
+            <input type="text" id="name" name="name" autoComplete="name" required disabled={isSubmitting} />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
