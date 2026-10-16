@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { products } from '../config/products.config.js';
 import CategoryFilter from '../components/CategoryFilter';
@@ -37,8 +37,31 @@ export default function ProductsPage() {
     return () => window.removeEventListener('popstate', syncFromUrl);
   }, []);
 
+  // After a category tap, bring the start of the new list up under the sticky bar.
+  // Without this the page keeps its old scroll position: you land partway down the
+  // new list, or at the footer when the new list is short.
+  const scrollToListPending = useRef(false);
+  useLayoutEffect(() => {
+    if (!scrollToListPending.current) return;
+    scrollToListPending.current = false;
+    // Measured from the page header (it never moves) rather than the sticky bar,
+    // whose position is unreliable while the browser settles the shorter page.
+    // The target is the point where the bar just reaches the nav and sticks.
+    const header = document.querySelector('.page-header');
+    if (!header) return;
+    const navHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0;
+    const target = Math.round(header.getBoundingClientRect().bottom + window.scrollY - navHeight);
+    // Only move when the bar is stuck, i.e. the visitor has scrolled into the list.
+    // Runs before paint and jumps instantly, so the old position never flashes.
+    if (window.scrollY > target) {
+      window.scrollTo({ top: target, behavior: 'instant' });
+    }
+  }, [selectedCategory]);
+
   // Handle category change
   const handleCategoryChange = (category) => {
+    if (category === selectedCategory) return;
+    scrollToListPending.current = true;
     setSelectedCategory(category);
     if (category) {
       router.push(`/products?category=${encodeURIComponent(category)}`, { scroll: false });

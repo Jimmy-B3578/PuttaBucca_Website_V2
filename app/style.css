@@ -913,11 +913,15 @@ a.utility-item:hover {
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: border-color 150ms ease-out, background-color 150ms ease-out, color 150ms ease-out;
 }
 
-.category-filter-btn:hover {
-  border-color: var(--green-700);
+@media (hover: hover) {
+  .category-filter-btn:hover {
+    border-color: var(--green-700);
+  }
 }
 
 .category-filter-btn.active {
@@ -974,9 +978,11 @@ a.utility-item:hover {
   transition: border-color 150ms ease-out, box-shadow 200ms ease-out;
 }
 
-.product-card:hover {
-  border-color: var(--stone-400);
-  box-shadow: 0 12px 28px rgba(16, 40, 27, 0.09);
+@media (hover: hover) {
+  .product-card:hover {
+    border-color: var(--stone-400);
+    box-shadow: 0 12px 28px rgba(16, 40, 27, 0.09);
+  }
 }
 
 .product-card-image {
@@ -2083,8 +2089,49 @@ a.utility-item:hover {
     font-size: 1rem;
   }
 
+  /* Two products per row on phones: photo, name, key tags and the button.
+     The long description and feature list live on the product page. */
   .product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-card-body {
+    gap: 8px;
+    padding: 12px 12px 14px;
+  }
+
+  .product-card-body h2 {
+    font-size: 1.02rem;
+    line-height: 1.25;
+  }
+
+  .spec-strip {
+    gap: 4px;
+  }
+
+  .spec-strip li {
+    padding: 2px 6px;
+    font-size: 0.76rem;
+  }
+
+  .product-card-desc,
+  .product-features {
+    display: none;
+  }
+
+  .product-card-cta {
+    min-height: 44px;
+    padding: 0 10px;
+    font-size: 0.92rem;
+  }
+
+  .product-card.bagged-product .product-card-image img {
+    padding: 8px;
+  }
+
+  .category-title {
+    margin: 32px 0 14px;
   }
 
   .form-group-inline {
