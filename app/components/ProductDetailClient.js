@@ -10,10 +10,10 @@ const ProductDetailClient = ({ product }) => {
     return (
         <>
             <div className="product-actions">
-                <button onClick={() => setIsQuoteFormOpen(true)} className="cta-button inquiry-button">
+                <button type="button" onClick={() => setIsQuoteFormOpen(true)} className="btn btn-primary btn-lg">
                     Request a Quote
                 </button>
-                <Link href="/contact" className="cta-button contact-button">
+                <Link href="/contact" className="btn btn-outline btn-lg">
                     Contact Now
                 </Link>
             </div>
@@ -22,4 +22,4 @@ const ProductDetailClient = ({ product }) => {
     );
 };
 
-export default ProductDetailClient; 
+export default ProductDetailClient;

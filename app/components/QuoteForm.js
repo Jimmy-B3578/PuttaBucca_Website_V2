@@ -1,11 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { CloseIcon } from './Icons';
 
 const QuoteForm = ({ product, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState(null); // 'success' or 'error'
   const [submissionMessage, setSubmissionMessage] = useState('');
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    document.body.classList.add('no-scroll');
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.classList.remove('no-scroll');
+    };
+  }, [onClose]);
 
   if (!product) return null;
 
@@ -32,13 +43,13 @@ const QuoteForm = ({ product, onClose }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      
+
       const result = await response.json();
 
       if (!response.ok) {
         throw new Error(result.error || 'Something went wrong on the server.');
       }
-      
+
       setSubmissionStatus('success');
       setSubmissionMessage('Your quote request has been sent successfully! We will get back to you shortly.');
 
@@ -53,13 +64,13 @@ const QuoteForm = ({ product, onClose }) => {
   if (submissionStatus === 'success') {
     return (
         <div className="quote-form-overlay" onClick={onClose}>
-            <div className="quote-form-container" onClick={(e) => e.stopPropagation()}>
+            <div className="quote-form-container" role="dialog" aria-modal="true" aria-labelledby="quote-title" onClick={(e) => e.stopPropagation()}>
                 <div className="quote-form-header">
-                    <h2>Success!</h2>
-                    <button className="quote-close-btn" onClick={onClose}>&times;</button>
+                    <h2 id="quote-title">Success!</h2>
+                    <button type="button" className="icon-btn" onClick={onClose} aria-label="Close"><CloseIcon size={22} /></button>
                 </div>
                 <p className="success-message">{submissionMessage}</p>
-                <button onClick={onClose} className="cta-button">Close</button>
+                <button type="button" onClick={onClose} className="btn btn-primary btn-block">Close</button>
             </div>
         </div>
     );
@@ -67,28 +78,28 @@ const QuoteForm = ({ product, onClose }) => {
 
   return (
     <div className="quote-form-overlay" onClick={onClose}>
-      <div className="quote-form-container" onClick={(e) => e.stopPropagation()}>
+      <div className="quote-form-container" role="dialog" aria-modal="true" aria-labelledby="quote-title" onClick={(e) => e.stopPropagation()}>
         <div className="quote-form-header">
-          <h2>Request a Quote: {product.name}</h2>
-          <button className="quote-close-btn" onClick={onClose}>&times;</button>
+          <h2 id="quote-title">Request a Quote: {product.name}</h2>
+          <button type="button" className="icon-btn" onClick={onClose} aria-label="Close"><CloseIcon size={22} /></button>
         </div>
         <form onSubmit={handleSubmit} className="quote-form">
           <div className="form-group">
             <label htmlFor="name">Full Name</label>
-            <input type="text" id="name" name="name" required disabled={isSubmitting} />
+            <input type="text" id="name" name="name" autoComplete="name" required disabled={isSubmitting} autoFocus />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" name="email" required disabled={isSubmitting} />
+            <input type="email" id="email" name="email" autoComplete="email" required disabled={isSubmitting} />
           </div>
           <div className="form-group">
             <label htmlFor="phone">Phone Number (Optional)</label>
-            <input type="tel" id="phone" name="phone" disabled={isSubmitting} />
+            <input type="tel" id="phone" name="phone" autoComplete="tel" disabled={isSubmitting} />
           </div>
           <div className="form-group-inline">
             <div className="form-group">
                 <label htmlFor="quantity">Quantity</label>
-                <input type="text" id="quantity" name="quantity" required disabled={isSubmitting} />
+                <input type="text" id="quantity" name="quantity" inputMode="decimal" required disabled={isSubmitting} />
             </div>
             <div className="form-group">
                 <label htmlFor="unit">Unit</label>
@@ -99,11 +110,11 @@ const QuoteForm = ({ product, onClose }) => {
             <label htmlFor="message">Message (Optional)</label>
             <textarea id="message" name="message" rows="4" disabled={isSubmitting}></textarea>
           </div>
-          <button type="submit" className="cta-button" disabled={isSubmitting}>
+          <button type="submit" className="btn btn-primary btn-lg btn-block" disabled={isSubmitting}>
             {isSubmitting ? 'Sending...' : 'Submit Quote Request'}
           </button>
           {submissionStatus === 'error' && (
-            <p className="error-message">{submissionMessage}</p>
+            <p className="error-message" role="alert">{submissionMessage}</p>
           )}
         </form>
       </div>
@@ -111,4 +122,4 @@ const QuoteForm = ({ product, onClose }) => {
   );
 };
 
-export default QuoteForm; 
+export default QuoteForm;

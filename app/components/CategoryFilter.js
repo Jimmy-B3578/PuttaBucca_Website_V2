@@ -16,25 +16,31 @@ const CategoryFilter = ({ products, onCategoryChange, selectedCategory }) => {
   }
 
   return (
-    <div className="category-filter">
-      <div className="category-filter-container">
-        <button 
-          className={`category-filter-btn ${!selectedCategory ? 'active' : ''}`}
-          onClick={() => onCategoryChange('')}
-        >
-          All Products
-        </button>
-        {categories.map((category) => (
+    <nav className="category-filter" aria-label="Filter products by category">
+      <div className="container">
+        <div className="category-filter-container">
           <button
-            key={category}
-            className={`category-filter-btn ${selectedCategory === category ? 'active' : ''}`}
-            onClick={() => onCategoryChange(category)}
+            type="button"
+            className={`category-filter-btn ${!selectedCategory ? 'active' : ''}`}
+            aria-pressed={!selectedCategory}
+            onClick={() => onCategoryChange('')}
           >
-            {category}
+            All Products
           </button>
-        ))}
+          {categories.map((category) => (
+            <button
+              type="button"
+              key={category}
+              className={`category-filter-btn ${selectedCategory === category ? 'active' : ''}`}
+              aria-pressed={selectedCategory === category}
+              onClick={() => onCategoryChange(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

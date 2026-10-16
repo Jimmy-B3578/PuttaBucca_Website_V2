@@ -1,0 +1,586 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T05:50:09.923Z",
+  "title": "Design System: Putta Bucca Landscapes",
+  "extensions": {
+    "colorMeta": {
+      "bush-green-night": {
+        "role": "primary",
+        "displayName": "Bush Green Night",
+        "tonalRamp": [
+          "#152c1f",
+          "#30453a",
+          "#4c5e54",
+          "#67776e",
+          "#838f89",
+          "#acb5b0",
+          "#d6dad8",
+          "#f1f3f2"
+        ]
+      },
+      "bush-green": {
+        "role": "primary",
+        "displayName": "Bush Green",
+        "tonalRamp": [
+          "#132d1e",
+          "#284836",
+          "#456051",
+          "#61796c",
+          "#7e9186",
+          "#a9b6af",
+          "#d4dad7",
+          "#f1f3f2"
+        ]
+      },
+      "bush-green-deep": {
+        "role": "primary",
+        "displayName": "Bush Green Deep",
+        "tonalRamp": [
+          "#132d1e",
+          "#204b33",
+          "#3d634e",
+          "#5b7b69",
+          "#799384",
+          "#a6b7ad",
+          "#d2dbd6",
+          "#f0f3f1"
+        ]
+      },
+      "bush-green-action": {
+        "role": "primary",
+        "displayName": "Bush Green Action",
+        "tonalRamp": [
+          "#112d1e",
+          "#1d4b32",
+          "#2f6748",
+          "#4f7f64",
+          "#6f9680",
+          "#9fb9ab",
+          "#cfdcd5",
+          "#eff3f1"
+        ]
+      },
+      "sandstone": {
+        "role": "secondary",
+        "displayName": "Sandstone",
+        "tonalRamp": [
+          "#302516",
+          "#503e24",
+          "#715633",
+          "#916f41",
+          "#b18750",
+          "#d4ae7c",
+          "#e9d7bd",
+          "#f8f2e9"
+        ]
+      },
+      "sandstone-deep": {
+        "role": "secondary",
+        "displayName": "Sandstone Deep",
+        "tonalRamp": [
+          "#352412",
+          "#583c1d",
+          "#7b5429",
+          "#976d3f",
+          "#aa8862",
+          "#c6af96",
+          "#e3d7cb",
+          "#f6f2ee"
+        ]
+      },
+      "sandstone-wash": {
+        "role": "secondary",
+        "displayName": "Sandstone Wash",
+        "tonalRamp": [
+          "#282624",
+          "#423f3c",
+          "#5c5954",
+          "#77726c",
+          "#918c84",
+          "#b9b2a8",
+          "#e0d8cc",
+          "#f8f2e8"
+        ]
+      },
+      "leaf": {
+        "role": "tertiary",
+        "displayName": "Leaf",
+        "tonalRamp": [
+          "#1e2b12",
+          "#32471f",
+          "#46642b",
+          "#5a8037",
+          "#6e9d44",
+          "#8cc756",
+          "#c6e3ab",
+          "#ecf6e3"
+        ]
+      },
+      "stone-50": {
+        "role": "neutral",
+        "displayName": "Stone 50",
+        "tonalRamp": [
+          "#262626",
+          "#40403f",
+          "#595958",
+          "#727372",
+          "#8c8c8b",
+          "#b2b3b1",
+          "#d8d9d6",
+          "#f2f3f0"
+        ]
+      },
+      "stone-100": {
+        "role": "neutral",
+        "displayName": "Stone 100",
+        "tonalRamp": [
+          "#262626",
+          "#3f403f",
+          "#595a58",
+          "#727371",
+          "#8c8d8a",
+          "#b2b3af",
+          "#d8d9d5",
+          "#f2f3f0"
+        ]
+      },
+      "stone-200": {
+        "role": "neutral",
+        "displayName": "Stone 200 Hairline",
+        "tonalRamp": [
+          "#262625",
+          "#3f403e",
+          "#585a57",
+          "#727370",
+          "#8b8d88",
+          "#b1b3ae",
+          "#d7dad3",
+          "#f2f3f0"
+        ]
+      },
+      "stone-400": {
+        "role": "neutral",
+        "displayName": "Stone 400",
+        "tonalRamp": [
+          "#252724",
+          "#3e413d",
+          "#575a55",
+          "#70746d",
+          "#898e85",
+          "#afb4ac",
+          "#d7dad6",
+          "#f2f3f1"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field Border",
+        "tonalRamp": [
+          "#252724",
+          "#3d413c",
+          "#565b54",
+          "#6e756c",
+          "#878f84",
+          "#afb4ad",
+          "#d7dad6",
+          "#f2f3f1"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "#232724",
+          "#3d413e",
+          "#575a58",
+          "#717372",
+          "#8b8d8b",
+          "#b2b3b2",
+          "#d8d9d8",
+          "#f2f2f2"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "tonalRamp": [
+          "#232724",
+          "#3b413d",
+          "#555b56",
+          "#6f7470",
+          "#898d8a",
+          "#b0b3b1",
+          "#d8d9d8",
+          "#f2f2f2"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "tonalRamp": [
+          "#242724",
+          "#3c413d",
+          "#545b55",
+          "#6e756f",
+          "#888e89",
+          "#b0b4b0",
+          "#d7d9d8",
+          "#f2f2f2"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "#262626",
+          "#404040",
+          "#595959",
+          "#737373",
+          "#8c8c8c",
+          "#b3b3b3",
+          "#d9d9d9",
+          "#f2f2f2"
+        ]
+      },
+      "status-ok-bg": {
+        "role": "status",
+        "displayName": "Status OK Ground",
+        "tonalRamp": [
+          "#252725",
+          "#3d413e",
+          "#565b57",
+          "#6e7470",
+          "#878e88",
+          "#abb5ae",
+          "#d0dcd3",
+          "#ecf5ee"
+        ]
+      },
+      "status-ok-ink": {
+        "role": "status",
+        "displayName": "Status OK Ink",
+        "tonalRamp": [
+          "#0f2e1c",
+          "#1a4d2f",
+          "#346649",
+          "#537e65",
+          "#729581",
+          "#a1b8ab",
+          "#d0dcd5",
+          "#eff3f1"
+        ]
+      },
+      "status-alert-bg": {
+        "role": "status",
+        "displayName": "Status Alert Ground",
+        "tonalRamp": [
+          "#292625",
+          "#443f3e",
+          "#5f5857",
+          "#7a716f",
+          "#958a88",
+          "#beb0ad",
+          "#e7d5d2",
+          "#fbf0ee"
+        ]
+      },
+      "status-alert-ink": {
+        "role": "status",
+        "displayName": "Status Alert Ink",
+        "tonalRamp": [
+          "#571a12",
+          "#902b1e",
+          "#9f483c",
+          "#ad645a",
+          "#bc8078",
+          "#d2aaa5",
+          "#e9d5d2",
+          "#f8f1f0"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page and photo header H1s; the hero H1 runs wdth 108 up to 3.5rem."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles and call-to-action band headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card names, list headings, fact and footer headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, measures capped between 34em and 62ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels, filter chips, breadcrumbs; sentence case."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Process-step numbers in Sandstone Deep."
+      }
+    },
+    "shadows": [
+      {
+        "name": "overlap-panel",
+        "value": "0 18px 40px rgba(16, 40, 27, 0.14), 0 2px 6px rgba(16, 40, 27, 0.06)",
+        "purpose": "Facts panel overlapping the hero's bottom edge."
+      },
+      {
+        "name": "hover-tile",
+        "value": "0 10px 24px rgba(16, 40, 27, 0.1)",
+        "purpose": "Hovered category tile."
+      },
+      {
+        "name": "hover-card",
+        "value": "0 12px 28px rgba(16, 40, 27, 0.09)",
+        "purpose": "Hovered product card."
+      },
+      {
+        "name": "drawer",
+        "value": "-16px 0 40px rgba(16, 40, 27, 0.18)",
+        "purpose": "Open calculator drawer (desktop)."
+      },
+      {
+        "name": "sheet",
+        "value": "0 -16px 40px rgba(16, 40, 27, 0.2)",
+        "purpose": "Open calculator bottom sheet (phones)."
+      },
+      {
+        "name": "dialog",
+        "value": "0 24px 60px rgba(16, 40, 27, 0.3)",
+        "purpose": "Quote request dialog."
+      },
+      {
+        "name": "menu-drop",
+        "value": "0 16px 24px rgba(16, 40, 27, 0.12)",
+        "purpose": "Mobile menu drop-down."
+      },
+      {
+        "name": "action-bar",
+        "value": "0 -6px 18px rgba(16, 40, 27, 0.08)",
+        "purpose": "Fixed phone action bar."
+      },
+      {
+        "name": "segment-selected",
+        "value": "0 1px 4px rgba(16, 40, 27, 0.16)",
+        "purpose": "Active calculator shape tab."
+      },
+      {
+        "name": "focus-field",
+        "value": "0 0 0 3px rgba(37, 96, 63, 0.25)",
+        "purpose": "Input focus ring."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Drawer slide (320ms) and tile image scale (400ms)."
+      },
+      {
+        "name": "state",
+        "value": "150ms ease-out",
+        "purpose": "Colour, border and background state changes."
+      },
+      {
+        "name": "shadow",
+        "value": "200ms ease-out",
+        "purpose": "Hover shadow on cards and tiles."
+      },
+      {
+        "name": "overlay",
+        "value": "240ms ease-out",
+        "purpose": "Calculator overlay fade."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "All transitions collapse under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav-calc-icon",
+        "value": "1180px"
+      },
+      {
+        "name": "nav-tight",
+        "value": "1100px"
+      },
+      {
+        "name": "menu",
+        "value": "960px"
+      },
+      {
+        "name": "phone",
+        "value": "768px"
+      },
+      {
+        "name": "small-phone",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The call action and every primary action on light ground.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z\"/></svg><span>0419 669 003</span></a>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border:2px solid transparent;border-radius:var(--r);font-family:var(--font-body);font-size:1rem;font-weight:700;line-height:1.1;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out}.ds-btn:focus-visible{outline:3px solid var(--green-700);outline-offset:2px}.ds-btn-primary{background:var(--green-700);border-color:var(--green-700);color:var(--white)}.ds-btn-primary:hover{background:var(--green-800);border-color:var(--green-800)}"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Secondary header action (Calculator) on white.",
+      "html": "<button class=\"ds-btn ds-btn-quiet\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"2\" width=\"16\" height=\"20\" rx=\"2\"/><path d=\"M8 6h8\"/><path d=\"M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01\"/></svg><span>Calculator</span></button>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border:2px solid transparent;border-radius:var(--r);font-family:var(--font-body);font-size:1rem;font-weight:700;line-height:1.1;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out}.ds-btn:focus-visible{outline:3px solid var(--green-700);outline-offset:2px}.ds-btn-quiet{background:var(--white);border:1.5px solid var(--stone-200);color:var(--ink)}.ds-btn-quiet:hover{border-color:var(--green-700);color:var(--green-800)}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on light ground, such as a quote request beside a call.",
+      "html": "<button class=\"ds-btn ds-btn-outline\">Request a Quote</button>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border:2px solid transparent;border-radius:var(--r);font-family:var(--font-body);font-size:1rem;font-weight:700;line-height:1.1;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out}.ds-btn:focus-visible{outline:3px solid var(--green-700);outline-offset:2px}.ds-btn-outline{background:var(--white);border-color:var(--green-700);color:var(--green-800)}.ds-btn-outline:hover{background:var(--green-700);color:var(--white)}"
+    },
+    {
+      "name": "Light and Ghost Buttons on Green",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "The paired actions inside bush-green bands.",
+      "html": "<div class=\"ds-band\"><button class=\"ds-btn ds-btn-lg ds-btn-light\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"2\" width=\"16\" height=\"20\" rx=\"2\"/><path d=\"M8 6h8\"/><path d=\"M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01\"/></svg><span>Calculate Your Project</span></button><a class=\"ds-btn ds-btn-lg ds-btn-ghost\" href=\"#\">View Our Products</a></div>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border:2px solid transparent;border-radius:var(--r);font-family:var(--font-body);font-size:1rem;font-weight:700;line-height:1.1;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color 150ms ease-out,border-color 150ms ease-out,color 150ms ease-out}.ds-btn:focus-visible{outline:3px solid var(--green-700);outline-offset:2px}.ds-band{display:flex;flex-wrap:wrap;gap:12px;padding:24px;background:var(--green-900)}.ds-btn-lg{min-height:54px;padding:0 24px;font-size:1.0625rem}.ds-btn-light{background:var(--white);border-color:var(--white);color:var(--green-900)}.ds-btn-light:hover{background:var(--stone-100);border-color:var(--stone-100)}.ds-btn-ghost{background:transparent;border-color:rgba(255,255,255,.75);color:var(--white)}.ds-btn-ghost:hover{background:rgba(255,255,255,.12);border-color:var(--white)}.ds-band .ds-btn:focus-visible{outline-color:var(--leaf)}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labelled form field with a sunlight-weight stroke and green focus ring.",
+      "html": "<label class=\"ds-field\"><span>Your name</span><input type=\"text\" placeholder=\"Jane Smith\"></label>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-field{display:block;max-width:360px;font-family:var(--font-body)}.ds-field span{display:block;margin-bottom:6px;color:var(--ink);font-size:.95rem;font-weight:600}.ds-field input{width:100%;box-sizing:border-box;min-height:48px;padding:10px 14px;border:1.5px solid var(--field-border);border-radius:var(--r);background:var(--white);color:var(--ink);font:inherit;font-size:1rem;transition:border-color 150ms ease-out,box-shadow 150ms ease-out}.ds-field input::placeholder{color:var(--ink-3)}.ds-field input:focus{outline:none;border-color:var(--green-700);box-shadow:0 0 0 3px rgba(37,96,63,.25)}"
+    },
+    {
+      "name": "Category Filter Chips",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Sticky, horizontally scrolling category filter on the catalogue.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip ds-chip-active\">All</button><button class=\"ds-chip\">Aggregates</button><button class=\"ds-chip\">Soil</button><button class=\"ds-chip\">Mulch</button></div>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-chips{display:flex;gap:8px}.ds-chip{min-height:42px;padding:0 16px;border:1.5px solid var(--stone-200);border-radius:999px;background:var(--white);color:var(--ink);font-family:var(--font-body);font-size:.95rem;font-weight:600;cursor:pointer;transition:border-color 150ms ease-out,background-color 150ms ease-out,color 150ms ease-out}.ds-chip:hover{border-color:var(--green-700)}.ds-chip:focus-visible{outline:3px solid var(--green-700);outline-offset:2px}.ds-chip-active,.ds-chip-active:hover{background:var(--green-900);border-color:var(--green-900);color:var(--white)}"
+    },
+    {
+      "name": "Main Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "White sticky bar; the current page carries a thick green underline.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Home</a><a href=\"#\">Products</a><a href=\"#\">Services</a><a href=\"#\">Contact</a></nav>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-nav{display:flex;gap:2px;padding:12px;background:var(--white);border-bottom:1px solid var(--stone-200);font-family:var(--font-body)}.ds-nav a{display:block;padding:10px 14px;border-radius:var(--r);color:var(--ink);font-weight:600;text-decoration:none;transition:background-color 150ms ease-out}.ds-nav a:hover{background:var(--stone-50)}.ds-nav a:focus-visible{outline:3px solid var(--green-700);outline-offset:2px}.ds-nav a[aria-current=page]{color:var(--green-800);text-decoration:underline;text-decoration-thickness:3px;text-decoration-color:var(--green-700);text-underline-offset:10px}"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "product-card",
+      "description": "Catalogue card: photo well, title, spec tags, clamped description, onward link.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-img\"></div><div class=\"ds-card-body\"><h3>Blue Metal 20mm</h3><ul class=\"ds-tags\"><li>20mm</li><li>Grey</li><li>Per m³</li></ul><p>Hard-wearing crushed stone for drainage, driveways and concrete.</p><a class=\"ds-link\" href=\"#\">View details <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div></article>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-card{max-width:320px;overflow:hidden;border:1px solid var(--stone-200);border-radius:var(--r-lg);background:var(--white);font-family:var(--font-body);color:var(--ink);transition:border-color 150ms ease-out,box-shadow 200ms ease-out}.ds-card:hover{border-color:var(--stone-400);box-shadow:0 12px 28px rgba(16,40,27,.09)}.ds-card-img{aspect-ratio:4/3;background:var(--stone-50)}.ds-card-body{display:flex;flex-direction:column;gap:12px;padding:18px 20px 20px}.ds-card h3{margin:0;font-size:1.3rem;font-weight:800;line-height:1.2}.ds-card p{margin:0;color:var(--ink-2);font-size:.97rem;line-height:1.55}.ds-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}.ds-tags li{padding:3px 9px;border:1px solid var(--stone-200);border-radius:4px;background:var(--stone-50);color:var(--ink-2);font-size:.85rem;font-weight:600}.ds-link{display:inline-flex;align-items:center;gap:6px;color:var(--green-800);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-decoration-color:var(--sand-400);text-underline-offset:.2em}.ds-link:hover{text-decoration-color:var(--green-700)}.ds-link:focus-visible{outline:3px solid var(--green-700);outline-offset:2px}"
+    },
+    {
+      "name": "Icon Row",
+      "kind": "custom",
+      "refersTo": "icon-tile",
+      "description": "Rule-divided list row with a solid bush-green icon tile; used for reasons, services and contact lines.",
+      "html": "<ul class=\"ds-rows\"><li><span class=\"ds-tile\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.9\"/><path d=\"M16 3.1a4 4 0 0 1 0 7.8\"/></svg></span><div><h3>Family Owned &amp; Operated</h3><p>Over 10 years serving the Mudgee region.</p></div></li></ul>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-rows{margin:0;padding:0;list-style:none;font-family:var(--font-body)}.ds-rows li{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--stone-200);border-bottom:1px solid var(--stone-200)}.ds-tile{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:var(--r);background:var(--green-900);color:var(--white)}.ds-rows h3{margin:0 0 6px;font-size:1.2rem;font-weight:800;color:var(--ink)}.ds-rows p{margin:0;color:var(--ink-2)}"
+    },
+    {
+      "name": "Calculator Readouts",
+      "kind": "custom",
+      "refersTo": "calc-readout-emphasis",
+      "description": "Signature result pair in the calculator drawer: volume on stone, tonnes on bush green, wide tabular numerals.",
+      "html": "<div class=\"ds-readouts\"><div class=\"ds-readout\"><span>Volume</span><strong>2.40 m³</strong></div><div class=\"ds-readout ds-readout-em\"><span>Approx. weight</span><strong>3.84 t</strong></div></div>",
+      "css": ":host{--green-950:#10281b;--green-900:#183a27;--green-800:#1f4a32;--green-700:#25603f;--leaf:#8cc756;--sand-600:#8f6230;--sand-400:#c99a5b;--sand-100:#f5ecdf;--stone-50:#f3f4f1;--stone-100:#e9ebe6;--stone-200:#d9dcd5;--stone-400:#9aa096;--field-border:#868e83;--ink:#1a1e1b;--ink-2:#3f4641;--ink-3:#5a625b;--white:#fff;--r:6px;--r-lg:10px;--ease-out:cubic-bezier(0.16,1,0.3,1);--font-body:var(--font-archivo),Archivo,'Helvetica Neue',Arial,sans-serif}.ds-readouts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:400px;font-family:var(--font-body)}.ds-readout{padding:14px;background:var(--stone-50);border:1px solid var(--stone-200);border-radius:var(--r);color:var(--ink)}.ds-readout span{display:block;color:var(--ink-3);font-size:.9rem;font-weight:600}.ds-readout strong{display:block;margin-top:4px;font-size:1.55rem;font-weight:800;font-variation-settings:'wdth' 106;font-variant-numeric:tabular-nums;line-height:1.15}.ds-readout-em{background:var(--green-900);border-color:var(--green-900)}.ds-readout-em strong{color:var(--white)}.ds-readout-em span{color:rgba(255,255,255,.8)}"
+    },
+    {
+      "name": "Material Strip",
+      "kind": "navigation",
+      "description": "Six real yard materials edge to edge above every footer, each a 2:1 crop of the product photo that links to the product, with a small bush-green label bottom-left.",
+      "html": "<nav class=\"ds-material-strip\" aria-label=\"A few of our materials\" style=\"display:grid;grid-template-columns:repeat(3,1fr)\"><a href=\"#\" style=\"position:relative;display:block;height:72px;background:#c49a62\"><span style=\"position:absolute;left:10px;bottom:8px;padding:3px 8px;border-radius:4px;background:rgba(16,40,27,.85);color:#fff;font:700 .8rem/1.3 sans-serif\">Washed River Sand</span></a><a href=\"#\" style=\"position:relative;display:block;height:72px;background:#8d8a83\"><span style=\"position:absolute;left:10px;bottom:8px;padding:3px 8px;border-radius:4px;background:rgba(16,40,27,.85);color:#fff;font:700 .8rem/1.3 sans-serif\">14/20 River Gravel</span></a><a href=\"#\" style=\"position:relative;display:block;height:72px;background:#a98a66\"><span style=\"position:absolute;left:10px;bottom:8px;padding:3px 8px;border-radius:4px;background:rgba(16,40,27,.85);color:#fff;font:700 .8rem/1.3 sans-serif\">Cypress Pine Chip</span></a></nav>"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Yard Counter",
+    "overview": "The site behaves like the counter at a well-run supply yard: everything you need is laid out plainly, the phone is right there, and nothing is dressed up to sell you on itself. This is the category standard played straight and executed at full craft: a light, high-contrast ground built for a phone held outdoors in bright sun, with deep bush green carrying the brand bands (header strip, hero, page headers, call-to-action band, footer) and white and cool stone-grey sections carrying the catalogue.\n\nOne self-hosted grotesk, Archivo, does all the talking in two widths: stretched wide and heavy for headings, normal width for reading. Real yard and product photographs carry the atmosphere; the system itself stays out of the way with hairline rules, small 6px corners, one drawn line-icon set and a single warm accent (sandstone) used sparingly. Density is moderate and practical: generous tap targets (48px minimum), clear grids, and lists divided by rules rather than boxed into cards.\n\nDepth is low and purposeful. Surfaces sit flat; soft green-tinted shadows appear only where something genuinely floats (the facts panel overlapping the hero, open drawers and dialogs, a hovered tile). The one gradient is a legibility scrim over the services photo. Elsewhere real yard stone is shown untinted, with copy carried on solid bush-green plates.",
+    "keyCharacteristics": [
+      "Light ground, bush-green bands, charcoal ink; high contrast everywhere.",
+      "Archivo wide-and-heavy for headings, normal width for body.",
+      "One 24px-grid, 2px-stroke line icon set, always in currentColor.",
+      "Gently squared 6px corners; hairline stone rules separate content.",
+      "Phone, hours and address always within one tap (utility strip, header call button, phone action bar, footer).",
+      "The calculator is a first-class right-hand drawer that becomes a bottom sheet on phones."
+    ],
+    "rules": [
+      {
+        "name": "The Green Bands Rule",
+        "body": "Bush green owns the frame of every page (utility strip, page or hero header, call-to-action band, footer); the content between them sits on white or stone-50. Page headers and call-to-action bands may show a real material photo (28mm white aggregate, black crusher dust) untinted, with their copy on a solid Bush Green plate. Do not introduce a third ground colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Warm Note Rule",
+        "body": "Sandstone is the only warm colour and it is an accent: underlines, a numeral, a hint panel. It never fills a button or a band.",
+        "section": "colors"
+      },
+      {
+        "name": "The Leaf On Dark Rule",
+        "body": "Leaf appears only on bush-green ground. On white, interactive green is always Bush Green Action.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Widths Rule",
+        "body": "Width is the hierarchy signal: headings wide (wdth 106–112), everything else normal. Never set body or labels wide, and never bring in a second family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Headings and labels stay in sentence or title case at normal tracking. No all-caps tracked labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Tap Rule",
+        "body": "Phone, hours and address must be reachable without scrolling at every width: utility strip and header call button on desktop, header call button and action bar on phones.",
+        "section": "layout"
+      },
+      {
+        "name": "The Float Or Flat Rule",
+        "body": "A shadow means the element floats above the page (overlap, drawer, dialog, fixed bar) or is answering a hover. Resting cards and panels are flat with a hairline border.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** frame every page with bush-green bands and keep content on white or stone-50.",
+      "**Do** set headings in Archivo 800 at wdth 106–112 and body at normal width, 1.0625rem / 1.6.",
+      "**Do** keep every tap target at least 44px, and buttons at 48px or more.",
+      "**Do** separate list rows with 1px Stone 200 hairlines and give each row a fixed icon column.",
+      "**Do** use the shared line icon set (24px grid, 2px stroke, currentColor) for every icon.",
+      "**Do** keep the phone number visible as a real `tel:` link in the header, the phone action bar and the footer.",
+      "**Do** show a 3px green focus outline on everything interactive, switching to Leaf on dark bands.",
+      "**Do** honour reduced motion: transitions collapse to near-zero."
+    ],
+    "donts": [
+      "**Don't** use emoji or text glyphs as icons, or mix in a second icon style.",
+      "**Don't** use sandstone as a fill for buttons or bands, or as body text on white.",
+      "**Don't** add glass, blur, decorative gradients or colour filters over the material photos; text on stone goes on a solid plate.",
+      "**Don't** use hard offset shadows or shadows on resting cards.",
+      "**Don't** hide content behind fade-in-on-scroll; everything renders visible.",
+      "**Don't** add uppercase tracked kicker labels above headings.",
+      "**Don't** bring in a second typeface or a system display face."
+    ]
+  }
+}

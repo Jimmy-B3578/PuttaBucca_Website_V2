@@ -6,6 +6,7 @@ let persistedIsOpen = false;
 import { useState, useEffect } from 'react';
 import './Calculator.css';
 import { products } from '../config/products.config.js';
+import { CloseIcon } from './Icons';
 
 const Calculator = () => {
   const [isOpen, setIsOpen] = useState(persistedIsOpen);
@@ -23,7 +24,6 @@ const Calculator = () => {
   const [weight, setWeight] = useState(0);
   const [selectedMaterial, setSelectedMaterial] = useState(null);
   const [showResult, setShowResult] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -34,11 +34,11 @@ const Calculator = () => {
       setSelectedMaterial(product || null);
     }
   };
-  
+
   const performCalculation = () => {
     const depth = parseFloat(inputs['calc-depth']) / 1000;
     let area = 0;
-  
+
     if (activeShape === 'rect') {
       const length = parseFloat(inputs['rect-length']);
       const width = parseFloat(inputs['rect-width']);
@@ -54,18 +54,18 @@ const Calculator = () => {
         area = Math.PI * radius * radius;
       }
     }
-  
+
     if (isNaN(depth) || isNaN(area) || area <= 0 || depth <= 0) {
       setShowResult(false);
       setVolume(0);
       return;
     }
-  
+
     const calculatedVolume = area * depth;
     setVolume(calculatedVolume);
     setShowResult(true);
   };
-  
+
   const resetCalculator = () => {
     setInputs({
       'rect-length': '',
@@ -81,10 +81,6 @@ const Calculator = () => {
     setSelectedMaterial(null);
     setShowResult(false);
   };
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
 
   useEffect(() => {
     // Open when hash is #calculator; do not auto-close on hash removal
@@ -115,6 +111,18 @@ const Calculator = () => {
   }, []);
 
   useEffect(() => {
+    // Escape closes the drawer; the page behind does not scroll while it is open
+    if (!isOpen) return;
+    const onKey = (e) => { if (e.key === 'Escape') handleClose(); };
+    window.addEventListener('keydown', onKey);
+    document.body.classList.add('calc-open');
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.classList.remove('calc-open');
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     if (volume > 0 && selectedMaterial && selectedMaterial.density) {
       setWeight(volume * selectedMaterial.density);
     } else {
@@ -138,73 +146,82 @@ const Calculator = () => {
     }
   };
 
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    performCalculation();
+  };
+
+  const showWeight = weight > 0 && selectedMaterial && selectedMaterial.unit === 'per tonne';
+
   return (
     <>
-      {/* Mobile floating action button (hidden on desktop via CSS) */}
-      {hasMounted && !isOpen && (
-        <button
-          type="button"
-          className="calc-fab"
-          aria-label="Open calculator"
-          onClick={() => setIsOpen(true)}
-        >
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
-            <path d="M7 2h10a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v3h12V5a1 1 0 0 0-1-1H7zm11 6H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10zM8 12h2v2H8v-2zm3 0h2v2h-2v-2zm3 0h2v2h-2v-2zM8 15h2v2H8v-2zm3 0h2v2h-2v-2zm3 0h2v2h-2v-2z" />
-          </svg>
-        </button>
-      )}
-
-      <div id="universal-calculator-sidebar" className={isOpen ? 'open' : ''}>
-      <div id="calc-toggle-tab" onClick={() => setIsOpen(true)} aria-label="Open calculator">
-        <span className="calc-tab-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-            <path d="M7 2h10a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v3h12V5a1 1 0 0 0-1-1H7zm11 6H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V10zM8 12h2v2H8v-2zm3 0h2v2h-2v-2zm3 0h2v2h-2v-2zM8 15h2v2H8v-2zm3 0h2v2h-2v-2zm3 0h2v2h-2v-2z" />
-          </svg>
-        </span>
-        <span className="calc-tab-label">CALCULATOR</span>
-      </div>
+      <div className={`calc-overlay ${isOpen ? 'open' : ''}`} onClick={handleClose} aria-hidden="true" />
+      <div
+        id="universal-calculator-sidebar"
+        className={isOpen ? 'open' : ''}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="calc-title"
+        aria-hidden={!isOpen}
+        inert={!isOpen ? true : undefined}
+      >
       <div className="calc-content">
         <div className="calc-header">
-          <h3>Volume Calculator</h3>
-          <button className="calc-close-btn" onClick={handleClose}>&times;</button>
+          <div>
+            <h3 id="calc-title">Volume Calculator</h3>
+            <p className="calc-subtitle">Work out how much material you need.</p>
+          </div>
+          <button type="button" className="icon-btn calc-close-btn" onClick={handleClose} aria-label="Close calculator">
+            <CloseIcon size={22} />
+          </button>
         </div>
-        <div className="calc-shape-tabs">
-          <button onClick={() => setActiveShape('rect')} className={activeShape === 'rect' ? 'active' : ''}>Rectangle</button>
-          <button onClick={() => setActiveShape('tri')} className={activeShape === 'tri' ? 'active' : ''}>Triangle</button>
-          <button onClick={() => setActiveShape('circ')} className={activeShape === 'circ' ? 'active' : ''}>Circle</button>
+
+        <div className="calc-shape-tabs" role="tablist" aria-label="Area shape">
+          <button type="button" role="tab" aria-selected={activeShape === 'rect'} onClick={() => setActiveShape('rect')} className={activeShape === 'rect' ? 'active' : ''}>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="1" /></svg>
+            Rectangle
+          </button>
+          <button type="button" role="tab" aria-selected={activeShape === 'tri'} onClick={() => setActiveShape('tri')} className={activeShape === 'tri' ? 'active' : ''}>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" aria-hidden="true"><path d="M12 4 21 19H3Z" /></svg>
+            Triangle
+          </button>
+          <button type="button" role="tab" aria-selected={activeShape === 'circ'} onClick={() => setActiveShape('circ')} className={activeShape === 'circ' ? 'active' : ''}>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /></svg>
+            Circle
+          </button>
         </div>
 
         {activeShape === 'rect' && (
-          <form id="rect-calc-form" className="calc-form active">
+          <form id="rect-calc-form" className="calc-form calc-form-pair active" onSubmit={onFormSubmit}>
             <div className="form-group">
               <label htmlFor="rect-length">Length (m)</label>
-              <input type="number" id="rect-length" placeholder="e.g., 5" step="0.01" value={inputs['rect-length']} onChange={handleInputChange} />
+              <input type="number" inputMode="decimal" id="rect-length" placeholder="e.g., 5" step="0.01" value={inputs['rect-length']} onChange={handleInputChange} />
             </div>
             <div className="form-group">
               <label htmlFor="rect-width">Width (m)</label>
-              <input type="number" id="rect-width" placeholder="e.g., 2.5" step="0.01" value={inputs['rect-width']} onChange={handleInputChange} />
+              <input type="number" inputMode="decimal" id="rect-width" placeholder="e.g., 2.5" step="0.01" value={inputs['rect-width']} onChange={handleInputChange} />
             </div>
           </form>
         )}
 
         {activeShape === 'tri' && (
-          <form id="tri-calc-form" className="calc-form active">
+          <form id="tri-calc-form" className="calc-form calc-form-pair active" onSubmit={onFormSubmit}>
             <div className="form-group">
               <label htmlFor="tri-base">Base (m)</label>
-              <input type="number" id="tri-base" placeholder="e.g., 4" step="0.01" value={inputs['tri-base']} onChange={handleInputChange} />
+              <input type="number" inputMode="decimal" id="tri-base" placeholder="e.g., 4" step="0.01" value={inputs['tri-base']} onChange={handleInputChange} />
             </div>
             <div className="form-group">
               <label htmlFor="tri-height">Height (m)</label>
-              <input type="number" id="tri-height" placeholder="e.g., 3" step="0.01" value={inputs['tri-height']} onChange={handleInputChange} />
+              <input type="number" inputMode="decimal" id="tri-height" placeholder="e.g., 3" step="0.01" value={inputs['tri-height']} onChange={handleInputChange} />
             </div>
           </form>
         )}
 
         {activeShape === 'circ' && (
-          <form id="circ-calc-form" className="calc-form active">
+          <form id="circ-calc-form" className="calc-form active" onSubmit={onFormSubmit}>
             <div className="form-group">
               <label htmlFor="circ-diameter">Diameter (m)</label>
-              <input type="number" id="circ-diameter" placeholder="e.g., 3" step="0.01" value={inputs['circ-diameter']} onChange={handleInputChange} />
+              <input type="number" inputMode="decimal" id="circ-diameter" placeholder="e.g., 3" step="0.01" value={inputs['circ-diameter']} onChange={handleInputChange} />
             </div>
           </form>
         )}
@@ -212,20 +229,29 @@ const Calculator = () => {
         <div id="common-fields" className="calc-form">
           <div className="form-group">
             <label htmlFor="calc-depth">Depth (mm)</label>
-            <input type="number" id="calc-depth" placeholder="e.g., 100" step="1" value={inputs['calc-depth']} onChange={handleInputChange} />
+            <input type="number" inputMode="numeric" id="calc-depth" placeholder="e.g., 100" step="1" value={inputs['calc-depth']} onChange={handleInputChange} onKeyDown={(e) => { if (e.key === 'Enter') performCalculation(); }} />
           </div>
           <div className="calc-buttons">
-            <button type="button" className="calculate-btn" onClick={performCalculation}>Calculate</button>
-            <button type="button" className="reset-btn" onClick={resetCalculator}>Reset</button>
+            <button type="button" className="btn btn-primary btn-lg calculate-btn" onClick={performCalculation}>Calculate</button>
+            <button type="button" className="btn btn-outline btn-lg reset-btn" onClick={resetCalculator}>Reset</button>
           </div>
           {showResult && (
-            <div className="calc-results" style={{ display: 'block' }}>
+            <div className="calc-results" aria-live="polite">
               <h4>Results</h4>
-              <div className="calc-result-item">
-                <span>Volume:</span>
-                <strong id="calc-volume-result">{volume.toFixed(3)} m³</strong>
+              <div className="calc-readouts">
+                <div className="calc-result-item">
+                  <span>Volume</span>
+                  <strong id="calc-volume-result">{volume.toFixed(3)} m³</strong>
+                </div>
+                <div className={`calc-result-item weight-emphasis ${showWeight ? '' : 'is-empty'}`}>
+                  <span>Estimated Weight</span>
+                  {showWeight ? (
+                    <strong id="calc-weight-result">{weight.toFixed(2)} tonnes</strong>
+                  ) : (
+                    <em>Pick a material sold by the tonne</em>
+                  )}
+                </div>
               </div>
-              <hr />
               <div className="form-group">
                 <label htmlFor="calc-material-select">Material for Weight Est.</label>
                 <select id="calc-material-select" value={inputs['calc-material-select']} onChange={handleInputChange}>
@@ -237,17 +263,9 @@ const Calculator = () => {
                   ))}
                 </select>
                 {selectedMaterial && selectedMaterial.unit === 'per tonne' && selectedMaterial.density != null && selectedMaterial.density !== '' && (
-                  <div style={{ marginTop: '6px' }}>
-                    <strong>Density: {selectedMaterial.density} tonnes/m³</strong>
-                  </div>
+                  <p className="calc-density">Density: {selectedMaterial.density} tonnes/m³</p>
                 )}
               </div>
-              {weight > 0 && selectedMaterial && selectedMaterial.unit === 'per tonne' && (
-                <div className="calc-result-item weight-emphasis">
-                  <span>Estimated Weight:</span>
-                  <strong id="calc-weight-result">{weight.toFixed(2)} tonnes</strong>
-                </div>
-              )}
 
               {selectedMaterial && (
                 (() => {
@@ -275,9 +293,7 @@ const Calculator = () => {
                   const message = lines.join('\n');
                   const href = `/contact?subject=${encodeURIComponent(subject)}&message=${encodeURIComponent(message)}`;
                   return (
-                    <div style={{ marginTop: '12px' }}>
-                      <a href={href} className="cta-button secondary">Email these details</a>
-                    </div>
+                    <a href={href} className="btn btn-primary btn-lg btn-block calc-email">Email these details</a>
                   );
                 })()
               )}
@@ -290,4 +306,4 @@ const Calculator = () => {
   );
 };
 
-export default Calculator; 
+export default Calculator;
