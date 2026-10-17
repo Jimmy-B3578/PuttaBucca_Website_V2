@@ -1,0 +1,24 @@
+name: Topsoil
+category: Soil
+image: /images/products/topsoil/image.jpg
+description: >-
+  Screened topsoil is a general-purpose soil suitable for levelling lawns and
+  laying turf. It’s free of large debris and has a fine texture that makes
+  spreading and working with it easy. This soil provides a good base layer and
+  can be enhanced with compost for even better results. It’s the go-to choice
+  for foundational landscaping and turf preparation.
+featuresAndApplications:
+  - Lawn establishment
+  - Soil improvement
+  - Laying Turf
+unit: per tonne
+density: 1.5
+inStock: true
+specifications:
+  color: Brown
+  size: ''
+  material: Soil
+deliveryInfo: >-
+  Available for bulk delivery in Mudgee and surrounding areas. Contact us for a
+  quote.
+sortOrder: 40

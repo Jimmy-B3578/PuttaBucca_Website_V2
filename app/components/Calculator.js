@@ -5,10 +5,9 @@ let persistedIsOpen = false;
 
 import { useState, useEffect } from 'react';
 import './Calculator.css';
-import { products } from '../config/products.config.js';
 import { CloseIcon } from './Icons';
 
-const Calculator = () => {
+const Calculator = ({ products = [] }) => {
   const [isOpen, setIsOpen] = useState(persistedIsOpen);
   const [activeShape, setActiveShape] = useState('rect');
   const [inputs, setInputs] = useState({
@@ -30,7 +29,7 @@ const Calculator = () => {
     setInputs((prev) => ({ ...prev, [id]: value }));
 
     if (id === 'calc-material-select') {
-      const product = products.find(p => p.id === parseInt(value));
+      const product = products.find(p => p.slug === value);
       setSelectedMaterial(product || null);
     }
   };
@@ -257,7 +256,7 @@ const Calculator = () => {
                 <select id="calc-material-select" value={inputs['calc-material-select']} onChange={handleInputChange}>
                   <option value="">-- Select --</option>
                   {materialOptions.map(p => (
-                    <option key={p.id} value={p.id}>
+                    <option key={p.slug} value={p.slug}>
                       {p.name} ({p.unit.replace('per ', '')})
                     </option>
                   ))}

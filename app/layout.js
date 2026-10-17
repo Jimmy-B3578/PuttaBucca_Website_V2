@@ -1,10 +1,4 @@
-import './style.css';
 import { Archivo } from 'next/font/google';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Calculator from './components/Calculator';
-import MobileActionBar from './components/MobileActionBar';
-import { Analytics } from "@vercel/analytics/next";
 
 const archivo = Archivo({
   subsets: ['latin'],
@@ -27,18 +21,11 @@ export const viewport = {
   themeColor: '#183A27',
 };
 
+// Shared by the public site (app/(site)/layout.js) and the Keystatic editor (app/keystatic).
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={archivo.variable}>
-      <body>
-        <a className="skip-link" href="#main">Skip to content</a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <Calculator />
-        <MobileActionBar />
-        <Analytics />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
