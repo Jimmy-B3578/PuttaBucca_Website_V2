@@ -16,13 +16,13 @@ The website for Putta Bucca Landscapes, a family-owned landscape and building su
 
 ## Positioning
 
-A local, family-run yard with 10+ years serving Mudgee: real people on the phone, expert advice on what to use and how much, and a flat $25 delivery fee in town. It is not a chain store.
+A local, family-run yard with 10+ years serving Mudgee: real people on the phone, expert advice on what to use and how much, and a flat $30 delivery fee in town. It is not a chain store.
 
 ## Operating Context
 
 - Customers browse the products by category, read the details (size, colour, material, density, uses), then call, request a quote, or visit.
 - The volume calculator (rectangle, triangle or circle area × depth → m³, plus estimated tonnes using each product's density) is used to work out how much to order. It can hand its results to the contact form as a pre-filled quote message.
-- Delivery: flat $25 fee in town; out-of-town rates by phone.
+- Delivery: flat $30 fee in town; out-of-town rates by phone.
 - Opening hours: Mon–Fri 7am–4pm, Sat 8am–1pm.
 
 ## Capabilities and Constraints
@@ -44,7 +44,7 @@ A local, family-run yard with 10+ years serving Mudgee: real people on the phone
 ## Evidence on Hand
 
 - Real photos: `LandingPage.jpg` (the yard's cut-steel saw-blade sign on a sandstone block), `Services.jpg` (the company's tipper truck at the yard; the bottom edge carries a phone-screenshot home bar that must be cropped out), and one photo per product in `public/images/`.
-- Claims on hand: family owned and operated, 10+ years of experience, serving the Mudgee region, $25 in-town delivery.
+- Claims on hand: family owned and operated, 10+ years of experience, serving the Mudgee region, $30 in-town delivery.
 - No testimonials, reviews, customer counts or prices. Do not invent them.
 
 ## Product Principles

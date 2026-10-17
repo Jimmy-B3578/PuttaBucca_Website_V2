@@ -21,7 +21,7 @@ export default function ServicesPage() {
               <span className="service-icon"><TruckIcon size={28} /></span>
               <div>
                 <h3>Bulk Haulage &amp; Delivery</h3>
-                <p>We deliver all of our landscaping materials right to your door in town for a flat fee of $25. Simple, affordable, and reliable—no surprises, just great service. Call us for our delivery rates out of town.</p>
+                <p>We deliver all of our landscaping materials right to your door in town for a flat fee of $30. Simple, affordable, and reliable—no surprises, just great service. Call us for our delivery rates out of town.</p>
               </div>
             </li>
             <li className="service-item">

@@ -57,7 +57,7 @@ export default function HomePage() {
             <TruckIcon size={24} />
             <div>
               <h2>Delivery</h2>
-              <p>Flat $25 fee in town. Call us for out-of-town rates.</p>
+              <p>Flat $30 fee in town. Call us for out-of-town rates.</p>
             </div>
           </div>
         </div>

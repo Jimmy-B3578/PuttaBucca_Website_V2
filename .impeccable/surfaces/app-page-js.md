@@ -9,7 +9,7 @@ related_targets: ["app/products/page.js","app/products/[slug]/page.js","app/serv
 
 Scope: whole-site visual redesign. Mode: Persuade on home; catalogue pages behave as Operate inside the same world. Visual only: copy, routes, product data, calculator maths, quote and email flows unchanged.
 
-Audience and job: Mudgee homeowners and trades, often on phones outdoors. Goal: phone the yard or drive in to 19 Industrial Ave. Proof on hand: real yard photos, the product photos, family-owned for 10+ years, $25 in-town delivery. No reviews or prices.
+Audience and job: Mudgee homeowners and trades, often on phones outdoors. Goal: phone the yard or drive in to 19 Industrial Ave. Proof on hand: real yard photos, the product photos, family-owned for 10+ years, $30 in-town delivery. No reviews or prices.
 
 Constraints: keep Logo.png and favicon.png and the existing photos; crop the phone home bar off Services.jpg; image paths are case-sensitive.
 
@@ -21,7 +21,7 @@ OWN-WORLD: Light, high-contrast ground for outdoor phone use: white and cool sto
 
 STORY: Visitors see the yard is real and local, find their material in seconds by category, work out how much they need with the calculator, then call or drive in. Phone, hours and address are always one tap away.
 
-FIRST VIEWPORT: A utility strip with today's hours, the address and the phone. The header has the mark and wordmark, nav, a Calculator button and a solid green "Call 0419 669 003" button. The hero is split: copy on solid bush green on the left, and the yard sign photo filling the right 48% to the edge, with the sign fully visible. The existing H1 is set wide and heavy at up to 3.75rem, then the existing intro line, then the primary Call button plus "View Our Products" and "Calculate Your Project". On phones the photo stacks above the copy. A white three-fact panel overlaps the hero's bottom edge: hours, address with Directions, and $25 town delivery.
+FIRST VIEWPORT: A utility strip with today's hours, the address and the phone. The header has the mark and wordmark, nav, a Calculator button and a solid green "Call 0419 669 003" button. The hero is split: copy on solid bush green on the left, and the yard sign photo filling the right 48% to the edge, with the sign fully visible. The existing H1 is set wide and heavy at up to 3.75rem, then the existing intro line, then the primary Call button plus "View Our Products" and "Calculate Your Project". On phones the photo stacks above the copy. A white three-fact panel overlaps the hero's bottom edge: hours, address with Directions, and $30 town delivery.
 
 FORM: Canon, the category standard played straight; the standing exit from the direction round (not on the ordered list); seed key 16816ea0.
 
