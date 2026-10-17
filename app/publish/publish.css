@@ -1,0 +1,112 @@
+/* Standalone styles for /publish; the site's own stylesheet isn't loaded here */
+.pub {
+  --green-900: #183a27;
+  --green-800: #1f4a32;
+  --green-700: #25603f;
+  --leaf: #8cc756;
+  --stone-50: #f3f4f1;
+  --stone-200: #d9dcd5;
+  --ink: #1a1e1b;
+  --ink-2: #3f4641;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 48px 16px;
+  background: var(--stone-50);
+  color: var(--ink);
+  font-family: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.pub-card {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 32px 28px;
+  background: #fff;
+  border: 1px solid var(--stone-200);
+  border-radius: 10px;
+}
+
+.pub-mark { display: block; margin-bottom: 16px; }
+
+.pub h1 {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--green-900);
+}
+
+.pub h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.pub-lead { margin: 0 0 24px; color: var(--ink-2); }
+
+.pub-panel { border-top: 1px solid var(--stone-200); padding-top: 24px; }
+.pub-panel > p { margin: 0 0 20px; }
+
+.pub-note { color: var(--ink-2); }
+
+.pub-list {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+}
+
+.pub-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--stone-200);
+}
+
+.pub-tag {
+  flex: none;
+  min-width: 72px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--stone-200);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+.pub-tag-added { background: #dcefc9; color: #24440f; }
+.pub-tag-removed { background: #f6d9d4; color: #6b1d12; }
+
+.pub-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.pub-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--green-700);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.pub-btn:hover { background: var(--green-800); }
+.pub-btn:disabled { background: var(--stone-200); color: var(--ink-2); cursor: not-allowed; }
+.pub-btn:focus-visible, .pub-link:focus-visible { outline: 3px solid var(--leaf); outline-offset: 2px; }
+
+.pub-link { color: var(--green-700); font-weight: 600; }
+
+.pub-done { color: var(--green-900); }
+
+@media (max-width: 480px) {
+  .pub { padding: 16px; }
+  .pub-card { padding: 24px 20px; }
+  .pub-btn { width: 100%; }
+}

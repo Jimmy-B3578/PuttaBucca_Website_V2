@@ -17,10 +17,11 @@ export const productCategories = [
 // On the live site they are saved as commits to GitHub, and Vercel redeploys.
 // Set NEXT_PUBLIC_KEYSTATIC_STORAGE=github locally to try GitHub mode (needed once for the GitHub App setup).
 const useGitHub = process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE === 'github';
+export const githubRepo = 'Jimmy-B3578/PuttaBucca_Website_V2';
 
 export default config({
   storage: useGitHub
-    ? { kind: 'github', repo: 'Jimmy-B3578/PuttaBucca_Website_V2' }
+    ? { kind: 'github', repo: githubRepo }
     : { kind: 'local' },
   ui: {
     brand: { name: 'Putta Bucca' },
