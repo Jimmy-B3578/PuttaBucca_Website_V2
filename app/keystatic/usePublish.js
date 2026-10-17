@@ -24,11 +24,11 @@ const writePending = (value) => {
 };
 
 // Keystatic's login token lasts 8 hours; its refresh route renews it from the longer-lived cookie
-async function request(method) {
-  let res = await fetch('/api/publish', { method, cache: 'no-store' });
+async function request(method, url = '/api/publish') {
+  let res = await fetch(url, { method, cache: 'no-store' });
   if (res.status === 401) {
     const refreshed = await fetch('/api/keystatic/github/refresh-token', { method: 'POST' });
-    if (refreshed.ok) res = await fetch('/api/publish', { method, cache: 'no-store' });
+    if (refreshed.ok) res = await fetch(url, { method, cache: 'no-store' });
   }
   const data = await res.json().catch(() => ({ error: 'failed' }));
   return res.ok ? data : { error: data.error || 'failed' };
@@ -44,12 +44,12 @@ export function usePublish({ pollEvery }) {
 
   const load = useCallback(async () => {
     if (busy.current) return;
-    const data = await request('GET');
+    const pending = readPending();
+    const data = await request('GET', pending ? `/api/publish?published=${pending.sha}` : undefined);
     if (busy.current) return;
     if (data.error) { setState(problemState(data.error)); return; }
     setStatus(data);
-    const pending = readPending();
-    if (pending && data.live !== pending.sha) {
+    if (pending && !data.publishedLive) {
       setState('going-live');
     } else {
       writePending(null);

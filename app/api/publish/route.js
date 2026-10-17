@@ -70,6 +70,20 @@ export async function GET(request) {
   if (!live) return Response.json({ live: null, products: [], otherChanges: 0 });
 
   try {
+    // After a publish the editor asks whether that publish is live yet. It counts as live once the
+    // live build includes it, even if a later push was what got deployed.
+    const published = request.nextUrl.searchParams.get('published');
+    let publishedLive;
+    if (published && /^[0-9a-f]{40}$/.test(published)) {
+      try {
+        const since = await github(token, `/compare/${published}...${live}`);
+        publishedLive = since.status === 'identical' || since.status === 'ahead';
+      } catch {
+        // If GitHub can't compare them (say the commit is gone), stop waiting rather than get stuck
+        publishedLive = true;
+      }
+    }
+
     const compare = await github(token, `/compare/${live}...${BRANCH}`);
 
     // Group the changed files by product: its YAML file and anything in its photo folder
@@ -91,7 +105,7 @@ export async function GET(request) {
     })));
     products.sort((a, b) => a.name.localeCompare(b.name));
 
-    return Response.json({ live, products, otherChanges });
+    return Response.json({ live, products, otherChanges, publishedLive });
   } catch (err) {
     return errorResponse(err);
   }
