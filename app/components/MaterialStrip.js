@@ -1,12 +1,5 @@
 import Link from 'next/link';
-import { products } from '../config/products.config';
-
-const slugify = (text) => text.toString().toLowerCase()
-  .replace(/\s+/g, '-')
-  .replace(/[^\w-]+/g, '')
-  .replace(/--+/g, '-')
-  .replace(/^-+/, '')
-  .replace(/-+$/, '');
+import { getProducts } from '../lib/products';
 
 // A run of real materials from the yard, edge to edge, like a sample board.
 // Each swatch is a crop of that product's own photo and links to its page.
@@ -19,13 +12,17 @@ const swatches = [
   { product: 'Organic Garden Mix (OGM)', image: '/images/textures/strip-organic-garden-mix.jpg', label: 'Organic Garden Mix' },
 ];
 
-export default function MaterialStrip() {
-  const items = swatches.filter((s) => products.some((p) => p.name === s.product));
+export default async function MaterialStrip() {
+  const products = await getProducts();
+  // Skip any swatch whose product has been renamed or removed in Keystatic
+  const items = swatches
+    .map((s) => ({ ...s, slug: products.find((p) => p.name === s.product)?.slug }))
+    .filter((s) => s.slug);
 
   return (
     <nav className="material-strip" aria-label="A few of our materials">
       {items.map((s) => (
-        <Link key={s.product} href={`/products/${slugify(s.product)}`} prefetch={false} className="material-swatch">
+        <Link key={s.product} href={`/products/${s.slug}`} prefetch={false} className="material-swatch">
           <img src={s.image} alt="" loading="lazy" width="640" height="320" />
           <span className="material-swatch-label">{s.label || s.product}</span>
         </Link>

@@ -1,0 +1,25 @@
+name: Firewood
+category: Random and unique
+image: /images/products/firewood/image.jpg
+description: >-
+  Our seasoned Firewood is a high-quality hardwood blend ideal for home
+  fireplaces, fire pits, and wood heaters. It burns hot and slow, producing
+  minimal smoke and long-lasting warmth during the colder months. The logs are
+  cut to manageable lengths, making them easy to stack, handle, and store.
+  Sustainably sourced and properly seasoned, this firewood is ready to burn and
+  delivers excellent value for home heating.
+featuresAndApplications:
+  - Heating and warmth
+  - Fireplaces
+  - Wood stoves
+  - Outdoor fires
+unit: per m³
+inStock: true
+specifications:
+  color: Dark Brown
+  size: ''
+  material: Timber
+deliveryInfo: >-
+  Available for bulk delivery in Mudgee and surrounding areas. Contact us for a
+  quote.
+sortOrder: 20
