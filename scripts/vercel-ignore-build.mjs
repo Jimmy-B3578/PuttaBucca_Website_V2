@@ -1,7 +1,7 @@
 // Vercel "Ignored Build Step" (see vercel.json). Exit 0 skips the build, exit 1 builds.
 //
 // Saving in Keystatic commits product changes to main, but they should only go live
-// when someone presses "Publish changes" on /publish. So on production:
+// when someone presses Publish in the editor. So on production:
 // - a "Publish website changes" commit (made by the publish button) always builds
 // - a commit that only touches product content is skipped (it waits for the next publish)
 // - anything else, like a code change, builds as normal (and takes any saved products with it)

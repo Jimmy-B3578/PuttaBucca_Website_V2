@@ -1,8 +1,9 @@
 import { githubRepo } from '../../../keystatic.config';
 
 // Saving in Keystatic commits to main but doesn't rebuild the site (see scripts/vercel-ignore-build.mjs).
-// This route lists what has been saved since the live build, and publishes it by adding an empty
-// "Publish website changes" commit to main, which Vercel always builds.
+// The Publish button in the editor (app/keystatic/PublishButton.js) uses this route: it lists what has
+// been saved since the live build, and publishes it by adding an empty "Publish website changes" commit
+// to main, which Vercel always builds.
 // It acts as whoever is logged in to Keystatic, so only people who can edit the site can publish.
 
 // Must match PUBLISH_COMMIT_MESSAGE in scripts/vercel-ignore-build.mjs
@@ -90,14 +91,14 @@ export async function GET(request) {
     })));
     products.sort((a, b) => a.name.localeCompare(b.name));
 
-    return Response.json({ live: live.slice(0, 7), products, otherChanges });
+    return Response.json({ live, products, otherChanges });
   } catch (err) {
     return errorResponse(err);
   }
 }
 
 export async function POST(request) {
-  // Only accept presses from this site's own publish page
+  // Only accept presses from this site's own editor
   const origin = request.headers.get('origin');
   if (origin && new URL(origin).host !== request.headers.get('host')) {
     return Response.json({ error: 'forbidden' }, { status: 403 });
@@ -116,7 +117,7 @@ export async function POST(request) {
         body: { message: PUBLISH_COMMIT_MESSAGE, tree: head.tree.sha, parents: [head.sha] },
       });
       await github(token, `/git/refs/heads/${BRANCH}`, { method: 'PATCH', body: { sha: commit.sha, force: false } });
-      return Response.json({ ok: true });
+      return Response.json({ ok: true, sha: commit.sha });
     } catch (err) {
       if (attempt < 2 && err instanceof GitHubError && err.status === 422) continue;
       return errorResponse(err);
