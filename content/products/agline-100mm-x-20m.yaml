@@ -1,6 +1,6 @@
-name: Aagline 100mm x 20m
+name: Agline 100mm x 20m
 category: Random and unique
-image: /images/products/aagline-100mm-x-20m/image.jpg
+image: /images/products/agline-100mm-x-20m/image.jpg
 description: >-
   Socked agline is a flexible, slotted drainage pipe encased in a protective
   filter sock to prevent soil and sediment from entering the pipe. This design
@@ -19,10 +19,7 @@ featuresAndApplications:
   - Water management
 unit: per roll
 inStock: true
-specifications:
-  color: ''
-  size: ''
-  material: ''
+specifications: {}
 deliveryInfo: >-
   Available for bulk delivery in Mudgee and surrounding areas. Contact us for a
   quote.
