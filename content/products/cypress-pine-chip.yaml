@@ -14,7 +14,7 @@ featuresAndApplications:
   - Decorative landscaping
   - Playground surfaces
 unit: per m³
-inStock: true
+inStock: false
 specifications:
   color: Light Brown
   size: 3cm
