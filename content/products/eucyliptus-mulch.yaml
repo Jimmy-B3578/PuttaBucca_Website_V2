@@ -1,7 +1,8 @@
 name: Eucyliptus Mulch
 category: Mulch
 image: /images/products/eucyliptus-mulch/image.jpg
-featuresAndApplications: []
+featuresAndApplications:
+  - Garden Bed
 unit: per m³
 inStock: true
 specifications: {}
