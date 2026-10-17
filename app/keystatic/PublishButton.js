@@ -45,7 +45,11 @@ export default function PublishButton() {
         className={`kpub-pill ${waiting ? '' : 'kpub-pill-quiet'}`}
         aria-expanded={open}
         aria-controls="kpub-panel"
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => {
+          // Re-check when opening so the list is current
+          if (!open) load();
+          setOpen((o) => !o);
+        }}
       >
         {waiting ? <>Publish changes <span className="kpub-count">{count}</span></> : 'Website up to date'}
       </button>

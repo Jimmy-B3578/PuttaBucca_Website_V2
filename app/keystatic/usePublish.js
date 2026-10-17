@@ -69,6 +69,25 @@ export function usePublish({ pollEvery }) {
     };
   }, [load, pollEvery]);
 
+  // Check again as soon as Keystatic saves. Every save or delete is a createCommitOnBranch
+  // request to GitHub's GraphQL API, sent with the browser's fetch.
+  useEffect(() => {
+    const originalFetch = window.fetch;
+    window.fetch = async (...args) => {
+      const res = await originalFetch(...args);
+      try {
+        const [input, init] = args;
+        const url = typeof input === 'string' ? input : input?.url;
+        const isSave = url === 'https://api.github.com/graphql'
+          && typeof init?.body === 'string'
+          && init.body.includes('createCommitOnBranch');
+        if (isSave && res.ok) setTimeout(load, 1000);
+      } catch {}
+      return res;
+    };
+    return () => { window.fetch = originalFetch; };
+  }, [load]);
+
   const publish = async () => {
     busy.current = true;
     setState('publishing');
