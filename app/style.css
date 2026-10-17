@@ -1534,6 +1534,26 @@ a.utility-item:hover {
   color: var(--ink-2);
 }
 
+.service-item .service-callout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.service-callout svg {
+  flex: none;
+  color: var(--green-700);
+}
+
+.service-callout a {
+  color: var(--green-800);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 
 .process-steps {
   display: grid;

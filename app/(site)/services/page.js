@@ -22,6 +22,10 @@ export default function ServicesPage() {
               <div>
                 <h3>Bulk Haulage &amp; Delivery</h3>
                 <p>We deliver all of our landscaping materials right to your door in town for a flat fee of $30. Simple, affordable, and reliable—no surprises, just great service. Call us for our delivery rates out of town.</p>
+                <p className="service-callout">
+                  <PhoneIcon size={18} />
+                  <span>For bulk orders, call <a href={siteConfig.bulkPhoneHref}>{siteConfig.bulkPhone}</a></span>
+                </p>
               </div>
             </li>
             <li className="service-item">

@@ -23,6 +23,7 @@ A local, family-run yard with 10+ years serving Mudgee: real people on the phone
 - Customers browse the products by category, read the details (size, colour, material, density, uses), then call, request a quote, or visit.
 - The volume calculator (rectangle, triangle or circle area × depth → m³, plus estimated tonnes using each product's density) is used to work out how much to order. It can hand its results to the contact form as a pre-filled quote message.
 - Delivery: flat $30 fee in town; out-of-town rates by phone.
+- Bulk orders: a separate line, 0427 799 267 (shown on the Services and Contact pages).
 - Opening hours: Mon–Fri 7am–4pm, Sat 8am–1pm.
 
 ## Capabilities and Constraints

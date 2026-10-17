@@ -5,6 +5,9 @@ export const siteConfig = {
   },
   phone: '0419 669 003',
   phoneHref: 'tel:0419669003',
+  // Separate line for bulk orders
+  bulkPhone: '0427 799 267',
+  bulkPhoneHref: 'tel:0427799267',
   email: 'sales@puttabucca.com.au',
   address: '19 Industrial Ave, Mudgee NSW 2850',
   directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=19%20Industrial%20Ave%2C%20Mudgee%20NSW%202850',

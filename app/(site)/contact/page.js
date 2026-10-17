@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { siteConfig } from '../../config/site.config';
-import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from '../../components/Icons';
+import { ClockIcon, MailIcon, PhoneIcon, PinIcon, TruckIcon } from '../../components/Icons';
 
 export default function ContactPage() {
   const [showPrefillHint, setShowPrefillHint] = useState(false);
@@ -70,6 +70,14 @@ export default function ContactPage() {
                 <div>
                   <strong>Phone</strong>
                   <a href={siteConfig.phoneHref} className="contact-phone">{siteConfig.phone}</a>
+                </div>
+              </li>
+              <li>
+                <span className="contact-icon"><TruckIcon size={22} /></span>
+                <div>
+                  <strong>Bulk Orders</strong>
+                  <span>For bulk orders, call</span>
+                  <a href={siteConfig.bulkPhoneHref} className="contact-phone">{siteConfig.bulkPhone}</a>
                 </div>
               </li>
               <li>
