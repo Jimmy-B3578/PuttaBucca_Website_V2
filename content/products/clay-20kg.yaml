@@ -17,11 +17,9 @@ featuresAndApplications:
   - Creative projects
   - Hobby activities
 unit: per 20KG bag
-inStock: true
+inStock: false
 specifications:
   color: Cream
-  size: ''
-  material: ''
 deliveryInfo: >-
   Available for bulk delivery in Mudgee and surrounding areas. Contact us for a
   quote.
