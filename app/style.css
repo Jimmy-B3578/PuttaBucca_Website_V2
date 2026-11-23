@@ -761,6 +761,93 @@ a.utility-item:hover {
   max-width: 60ch;
 }
 
+/* ShapeScaper feature */
+
+.feature-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(32px, 6vw, 72px);
+  align-items: center;
+}
+
+.feature-photo {
+  overflow: hidden;
+  border-radius: var(--r-lg);
+}
+
+.feature-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+.feature-copy {
+  max-width: 62ch;
+  color: var(--ink-2);
+}
+
+.feature-range {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--stone-200);
+}
+
+.feature-range a {
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  gap: 12px;
+  align-items: center;
+  min-height: 64px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--stone-200);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.feature-range a:hover strong {
+  color: var(--green-800);
+}
+
+.feature-range strong {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.feature-range-meta {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-2);
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.feature-range svg {
+  color: var(--green-700);
+}
+
+.feature-call {
+  margin-top: 18px;
+  color: var(--ink-2);
+}
+
+.feature-call a {
+  color: var(--green-800);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--sand-400);
+  text-underline-offset: 0.25em;
+}
+
+.feature-call a:hover {
+  text-decoration-color: var(--green-700);
+}
+
 /* Call-to-action band */
 
 .cta-band {
@@ -1890,6 +1977,7 @@ a.utility-item:hover {
   }
 
   .why-layout,
+  .feature-layout,
   .contact-layout,
   .product-detail-container {
     grid-template-columns: 1fr;

@@ -32,7 +32,7 @@ export default async function HomePage() {
         <div className="container hero-inner">
           <div className="hero-content">
             <h1>Your Trusted Partner for Quality Landscape Supplies</h1>
-            <p className="hero-lede">From decorative stones to quality soils, we have everything you need for your next landscaping project.</p>
+            <p className="hero-lede">From decorative stones and quality soils to ShapeScaper steel edging, we have everything you need for your next landscaping project.</p>
             <HeroButtons />
           </div>
         </div>
@@ -63,6 +63,45 @@ export default async function HomePage() {
               <h2>Delivery</h2>
               <p>Flat $30 fee in town. Call us for out-of-town rates.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-stone" aria-labelledby="shapescaper-title">
+        <div className="container feature-layout">
+          <div className="feature-photo">
+            <Image
+              src="/images/shapescaper-feature.jpg"
+              alt="Weathering steel edging curving around a paved fire pit, with a raised steel wall and a timber seat"
+              width={1080}
+              height={1080}
+              sizes="(max-width: 960px) 100vw, 640px"
+            />
+          </div>
+          <div>
+            <h2 id="shapescaper-title" className="section-title">ShapeScaper steel edging</h2>
+            <p className="feature-copy">Modular steel garden edging, made in Australia from BlueScope steel and stocked at the yard. Lengths are 2.4m, with connector plates and fixings, and the lower profiles bend on site into curves or corners. Weathering steel is REDCOR, galvanised is GALVABOND, and ZINMAG is the self-healing coating.</p>
+            <ul className="feature-range">
+              <li>
+                <Link href="/products/shapescaper-steel-garden-edging">
+                  <span>
+                    <strong>Steel garden edging</strong>
+                    <span className="feature-range-meta">2.4m lengths, 75mm to 185mm, REDCOR</span>
+                  </span>
+                  <ArrowRightIcon size={20} />
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/shapescaper-stakes">
+                  <span>
+                    <strong>Stakes</strong>
+                    <span className="feature-range-meta">Ribbed and L-profile, matched to the edging height</span>
+                  </span>
+                  <ArrowRightIcon size={20} />
+                </Link>
+              </li>
+            </ul>
+            <p className="feature-call">Call the yard on <a href={siteConfig.phoneHref}>{siteConfig.phone}</a> to check which heights and finishes are in.</p>
           </div>
         </div>
       </section>

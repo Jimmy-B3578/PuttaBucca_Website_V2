@@ -1,0 +1,25 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "dev-keystatic",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev", "-p", "3002"],
+      "env": { "NEXT_DIST_DIR": ".next-keystatic-dev" },
+      "port": 3002
+    },
+    {
+      "name": "dev-keystatic-github",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev", "-p", "3002"],
+      "env": { "NEXT_DIST_DIR": ".next-keystatic-dev", "NEXT_PUBLIC_KEYSTATIC_STORAGE": "github", "LIVE_COMMIT_SHA": "92d6e6d" },
+      "port": 3002
+    }
+  ]
+}

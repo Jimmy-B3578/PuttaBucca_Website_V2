@@ -9,6 +9,7 @@ export const productCategories = [
   'Pebbles',
   'Mulch',
   'Sandstone',
+  'Edging',
   'Random and unique',
   'Bagged Products',
 ];
