@@ -66,6 +66,12 @@ const ProductDetailPage = async ({ params }) => {
 
                 <p className="description">{product.description}</p>
 
+                {product.slug.startsWith('shapescaper-') && (
+                    <p className="detail-call">
+                        <span>See the full range on the <a href="https://idealedging.com.au/shapescaper/" target="_blank" rel="noopener noreferrer">ShapeScaper website</a>.</span>
+                    </p>
+                )}
+
                 <ProductDetailClient product={product} />
                 <p className="detail-call">
                     <PhoneIcon size={18} />

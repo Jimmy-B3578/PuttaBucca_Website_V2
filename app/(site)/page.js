@@ -95,12 +95,13 @@ export default async function HomePage() {
                 <Link href="/products/shapescaper-stakes">
                   <span>
                     <strong>Stakes</strong>
-                    <span className="feature-range-meta">Ribbed and L-profile, matched to the edging height</span>
+                    <span className="feature-range-meta">300mm to 500mm long</span>
                   </span>
                   <ArrowRightIcon size={20} />
                 </Link>
               </li>
             </ul>
+            <p className="feature-call">See the full range on the <a href="https://idealedging.com.au/shapescaper/" target="_blank" rel="noopener noreferrer">ShapeScaper website</a>.</p>
             <p className="feature-call">Call the yard on <a href={siteConfig.phoneHref}>{siteConfig.phone}</a> to check which heights and finishes are in.</p>
           </div>
         </div>
